@@ -1,0 +1,113 @@
+CREATE DATABASE Gimnasio 
+
+
+USE Gimnasio 
+
+
+CREATE TABLE PROVEEDOR ( 
+	idProv INT AUTO_INCREMENT PRIMARY KEY,
+	nombreProv VARCHAR(20) not null,
+	telefono VARCHAR(10) not null
+);
+
+CREATE TABLE MEMBRESIA (
+	idMem INT AUTO_INCREMENT PRIMARY KEY, 
+	nombreMem VARCHAR(20) not null,
+	duracion DATE not null,
+	precioMem FLOAT not null
+);
+
+CREATE TABLE CLIENTES ( 
+	idClien INT AUTO_INCREMENT PRIMARY KEY,
+	nombre VARCHAR(20) not null,
+	apellidoPat VARCHAR(20) not null,
+	apellidoMat VARCHAR(20) not null,
+	apodo VARCHAR(20) not null
+);
+
+CREATE TABLE DETALLES_SUMINISTRA ( 
+	idSum INT AUTO_INCREMENT PRIMARY KEY, 
+	nombre VARCHAR(20) not null,
+	idProv INT not null,
+	CONSTRAINT fk_idProv FOREIGN KEY (idProv) REFERENCES PROVEEDOR (idProv) ON DELETE CASCADE
+);
+
+
+CREATE TABLE DETALLES_COMPRA ( 
+	idCom INT AUTO_INCREMENT PRIMARY KEY, 
+	totalCom FLOAT not null
+);
+
+
+CREATE TABLE PERMANENCIA ( 
+	idClien INT not null,
+	idMem INT not null,
+	idCom INT, 
+	fecha DATE not null,
+	horaEntrada TIME not null,
+	horaSalida TIME not null,
+	CONSTRAINT fk_idPerm FOREIGN KEY (idClien) REFERENCES CLIENTES (idClien) ON DELETE CASCADE,
+	CONSTRAINT fk_idPerm2 FOREIGN KEY (idMem) REFERENCES MEMBRESIA (idMem) ON DELETE CASCADE,
+	CONSTRAINT fk_idPerm3 FOREIGN KEY (idCom) REFERENCES DETALLES_COMPRA (idCom) ON DELETE CASCADE
+);
+
+
+CREATE TABLE PRODUCTOS (
+	idProd INT AUTO_INCREMENT PRIMARY KEY,
+	nombreProd VARCHAR(20) not null,
+	stock INT not null,
+	precioProd FLOAT not null
+);
+
+
+CREATE TABLE COMPRAS (
+	idCom INT not null, 
+	idProd INT not null, 
+	nombreProd VARCHAR(20) not null,
+	cantidadSum INT not null,
+	subTotalCom FLOAT not null,
+	CONSTRAINT fk_idDetCom FOREIGN KEY (idCom) REFERENCES DETALLES_COMPRA (idCom) ON DELETE CASCADE,
+	CONSTRAINT fk_idProd FOREIGN KEY (idProd) REFERENCES PRODUCTOS (idProd) ON DELETE CASCADE
+);
+
+
+CREATE TABLE SUMINISTRA ( 
+	idSum INT not null, 
+	idProd INT not null, 
+	nombreProd VARCHAR(20) not null,
+	cantidadSum INT not null,
+	subTotalSum FLOAT not null,
+	CONSTRAINT fk_idDetSum FOREIGN KEY (idSum) REFERENCES DETALLES_SUMINISTRA (idSum) ON DELETE CASCADE,
+	CONSTRAINT fk_idProd2 FOREIGN KEY (idProd) REFERENCES PRODUCTOS (idProd) ON DELETE CASCADE
+);
+
+
+CREATE TABLE BEBIDAS ( 
+	idProd INT, 
+	cantidadMililitros INT not null,
+	CONSTRAINT fk_idProd3 FOREIGN KEY (idProd) REFERENCES PRODUCTOS (idProd) ON DELETE CASCADE
+);
+
+
+CREATE TABLE SUPLEMENTOS ( 
+	idProd INT not null,
+	cantidadGramos INT not null,
+	CONSTRAINT fk_idProd4 FOREIGN KEY (idProd) REFERENCES PRODUCTOS (idProd) ON DELETE CASCADE
+);
+
+
+CREATE TABLE ROPA ( 
+	idProd INT not null, 
+	tipo VARCHAR(20) not null,
+	talla VARCHAR(20) not null,
+	CONSTRAINT fk_idProd5 FOREIGN KEY (idProd) REFERENCES PRODUCTOS (idProd) ON DELETE CASCADE
+);
+
+
+
+----------Crear usuario
+create user 'eyesdeveloper'@'localhost' identified by 'Theallismind2';
+-----Privilegios
+grant all on gimnasio.* to 'eyesdeveloper'@'localhost';
+--------Ajustar cambios
+flush privileges;

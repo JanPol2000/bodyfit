@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Clientes</title>
+</head>
+<body>
+	<h1>Clientes</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Nombre</th>
+				<th>Apellido Paterno</th>
+				<th>Apellido Materno</th>
+				<th>Apodo</th>
+				<th>Opcion</th>
+			</tr>
+		</thead>
+		<tbody>
+			<!-- Se listan todos los clientes -->
+			{% for cliente in clientes %}
+				<tr>
+					<td>{{ cliente.idclien }}</td>
+					<td>{{ cliente.nombre }}</td>
+					<td>{{ cliente.apellidopat }}</td>
+					<td>{{ cliente.apellidomat }}</td>
+					<td>{{ cliente.apodo }}</td>
+					<!-- Redirige a la pagina para editar o elimnar al cliente -->
+					<td><a href="{% url 'clientes_editar' cliente.idclien %}">EDITAR </a><a href="{% url 'clientes_eliminar' cliente.idclien %}">ELIMINAR</a></td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	<!-- Redirige a la pagina para crear cliente -->
+	<a href="{% url 'clientes_crear' %}">CREAR</a>
+</body>
+</html>

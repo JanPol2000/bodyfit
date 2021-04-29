@@ -15,7 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from app.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # Indice
+    path('', Inicio.as_view(), name='index'),
+    # Rutas para el CRUD del cliente
+    path('clientes_listar/', ClientesList.as_view(), name='clientes_listar'),
+    path('clientes_crear/', ClientesCreate.as_view(), name='clientes_crear'),
+    path('clientes_editar/<int:pk>', ClientesUpdate.as_view(), name='clientes_editar'),
+    path('clientes_eliminar/<int:pk>', ClientesDelete.as_view(), name='clientes_eliminar'),
 ]
