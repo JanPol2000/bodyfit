@@ -31,4 +31,9 @@ urlpatterns = [
     path('membresia_crear/', MembresiaCreate.as_view(), name='membresia_crear'),
     path('membresia_editar/<int:pk>', MembresiaUpdate.as_view(), name='membresia_editar'),
     path('membresia_eliminar/<int:pk>', MembresiaDelete.as_view(), name='membresia_eliminar'),
+    # Rutas para el CRUD del proveedor
+    path('proveedor_listar/', ProveedorList.as_view(), name='proveedor_listar'),
+    path('proveedor_crear/', ProveedorCreate.as_view(), name='proveedor_crear'),
+    path('proveedor_editar/<int:pk>', ProveedorUpdate.as_view(), name='proveedor_editar'),
+    path('proveedor_eliminar/<int:pk>', ProveedorDelete.as_view(), name='proveedor_eliminar'),
 ]
