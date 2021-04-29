@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Membresia</title>
+</head>
+<body>
+	<h1>Membresias</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Nombre</th>
+				<th>Duracion</th>
+				<th>Precio</th>
+				<th>Opcion</th>
+			</tr>
+		</thead>
+		<tbody>
+			<!-- Se listan todos los clientes -->
+			{% for membresia in membresias %}
+				<tr>
+					<td>{{ membresia.idmem }}</td>
+					<td>{{ membresia.nombremem }}</td>
+					<td>{{ membresia.duracion }}</td>
+					<td>{{ membresia.preciomem }}</td>
+					<!-- Redirige a la pagina para editar o elimnar la membresia -->
+					<td><a href="{% url 'membresia_editar' membresia.idmem %}">EDITAR </a><a href="{% url 'membresia_eliminar' membresia.idmem %}">ELIMINAR</a></td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	<!-- Redirige a la pagina para crear membresia -->
+	<a href="{% url 'membresia_crear' %}">CREAR</a>
+</body>
+</html>

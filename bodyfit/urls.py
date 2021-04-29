@@ -26,4 +26,9 @@ urlpatterns = [
     path('clientes_crear/', ClientesCreate.as_view(), name='clientes_crear'),
     path('clientes_editar/<int:pk>', ClientesUpdate.as_view(), name='clientes_editar'),
     path('clientes_eliminar/<int:pk>', ClientesDelete.as_view(), name='clientes_eliminar'),
+    # Rutas para el CRUD de la membresia
+    path('membresia_listar/', MembresiaList.as_view(), name='membresia_listar'),
+    path('membresia_crear/', MembresiaCreate.as_view(), name='membresia_crear'),
+    path('membresia_editar/<int:pk>', MembresiaUpdate.as_view(), name='membresia_editar'),
+    path('membresia_eliminar/<int:pk>', MembresiaDelete.as_view(), name='membresia_eliminar'),
 ]

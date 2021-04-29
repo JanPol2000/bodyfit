@@ -37,3 +37,33 @@ class ClientesDelete(DeleteView):
 	model = Clientes
 	template_name = 'clientes_eliminar.html'
 	success_url = reverse_lazy('clientes_listar') 
+
+# MEMBRESIA
+# Vista para listar la membresia
+class MembresiaList(ListView):
+	def get(self, request, *args, **kwargs):
+		membresias = Membresia.objects.all()
+		contexto = {
+			'membresias':membresias,
+		}
+		return render(request, 'membresia_listar.html', contexto)
+
+# Vista para crear la membresia
+class MembresiaCreate(CreateView):
+	model = Membresia
+	form_class = MembresiaForm
+	template_name = 'membresia_crear.html'
+	success_url = reverse_lazy('membresia_listar')
+
+# Vista para editar la membresia
+class MembresiaUpdate(UpdateView):
+	model = Membresia
+	form_class = MembresiaForm
+	template_name = 'membresia_editar.html'
+	success_url = reverse_lazy('membresia_listar')
+
+# Vista para eliminar la membresia
+class MembresiaDelete(DeleteView):
+	model = Membresia
+	template_name = 'membresia_eliminar.html'
+	success_url = reverse_lazy('membresia_listar')
