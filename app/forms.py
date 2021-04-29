@@ -10,3 +10,8 @@ class MembresiaForm(forms.ModelForm):
 	class Meta:
 		model = Membresia 
 		fields = '__all__'
+
+class ProveedorForm(forms.ModelForm):
+	class Meta:
+		model = Proveedor 
+		fields = '__all__'

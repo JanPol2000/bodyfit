@@ -67,3 +67,33 @@ class MembresiaDelete(DeleteView):
 	model = Membresia
 	template_name = 'membresia_eliminar.html'
 	success_url = reverse_lazy('membresia_listar')
+
+# PROVEEDOR
+# Vista para crear a proveedor
+class ProveedorList(ListView):
+	def get(self, request, *args, **kwargs):
+		proveedores = Proveedor.objects.all()
+		contexto = {
+			'proveedores':proveedores,
+		}
+		return render(request, 'proveedor_listar.html', contexto)
+
+# Vista para crear al proveedor
+class ProveedorCreate(CreateView):
+	model = Proveedor
+	form_class = ProveedorForm
+	template_name = 'proveedor_crear.html'
+	success_url = reverse_lazy('proveedor_listar')
+
+# Vista para editar al proveedor
+class ProveedorUpdate(UpdateView):
+	model = Proveedor
+	form_class = ProveedorForm
+	template_name = 'proveedor_editar.html'
+	success_url = reverse_lazy('proveedor_listar')
+
+# Vista para eliminar la proveedor
+class ProveedorDelete(DeleteView):
+	model = Proveedor
+	template_name = 'proveedor_eliminar.html'
+	success_url = reverse_lazy('proveedor_listar')

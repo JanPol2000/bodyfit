@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Proveedores</title>
+</head>
+<body>
+	<h1>Proveedores</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Nombre</th>
+				<th>Telefono</th>
+				<th>Opcion</th>
+			</tr>
+		</thead>
+		<tbody>
+			<!-- Se listan todos los proveedores -->
+			{% for proveedor in proveedores %}
+				<tr>
+					<td>{{ proveedor.idprov }}</td>
+					<td>{{ proveedor.nombreprov }}</td>
+					<td>{{ proveedor.telefono }}</td>
+					<!-- Redirige a la pagina para editar o elimnar a los proveedores -->
+					<td><a href="{% url 'proveedor_editar' proveedor.idprov %}">EDITAR </a><a href="{% url 'proveedor_eliminar' proveedor.idprov %}">ELIMINAR</a></td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	<!-- Redirige a la pagina para crear proveedor -->
+	<a href="{% url 'proveedor_crear' %}">CREAR</a>
+</body>
+</html>
