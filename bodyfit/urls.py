@@ -36,4 +36,9 @@ urlpatterns = [
     path('proveedor_crear/', ProveedorCreate.as_view(), name='proveedor_crear'),
     path('proveedor_editar/<int:pk>', ProveedorUpdate.as_view(), name='proveedor_editar'),
     path('proveedor_eliminar/<int:pk>', ProveedorDelete.as_view(), name='proveedor_eliminar'),
+    # Rutas para el CRUD del producto
+    path('productos_listar/', ProductosList.as_view(), name='productos_listar'),
+    path('productos_crear/', ProductosCreate.as_view(), name='productos_crear'),
+    path('productos_editar/<int:pk>', ProductosUpdate.as_view(), name='productos_editar'),
+    path('productos_eliminar/<int:pk>', ProductosDelete.as_view(), name='productos_eliminar'),
 ]
