@@ -13,7 +13,7 @@ CREATE TABLE PROVEEDOR (
 CREATE TABLE MEMBRESIA (
 	idMem INT AUTO_INCREMENT PRIMARY KEY, 
 	nombreMem VARCHAR(20) not null,
-	duracion DATE not null,
+	duracion int not null,
 	precioMem FLOAT not null
 );
 

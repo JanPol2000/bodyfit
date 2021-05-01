@@ -11,7 +11,7 @@ class Proveedor(models.Model):
 class Membresia(models.Model):
     idmem = models.AutoField(db_column='idMem', primary_key=True)  # Field name made lowercase.
     nombremem = models.CharField(db_column='nombreMem', max_length=20)  # Field name made lowercase.
-    duracion = models.DateField()
+    duracion = models.IntegerField()
     preciomem = models.FloatField(db_column='precioMem')  # Field name made lowercase.
 
     class Meta:
