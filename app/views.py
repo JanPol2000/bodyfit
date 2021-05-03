@@ -97,3 +97,33 @@ class ProveedorDelete(DeleteView):
 	model = Proveedor
 	template_name = 'proveedor_eliminar.html'
 	success_url = reverse_lazy('proveedor_listar')
+
+# PRODUCTOS
+# Vista para crear el producto
+class ProductosList(ListView):
+	def get(self, request, *args, **kwargs):
+		productos = Productos.objects.all()
+		contexto = {
+			'productos':productos,
+		}
+		return render(request, 'productos_listar.html', contexto)
+# Vista para crear el producto
+class ProductosCreate(CreateView):
+	model = Productos
+	form_class = ProductosForm
+	template_name = 'productos_crear.html'
+	success_url = reverse_lazy('productos_listar')
+
+# Vista para editar el producto
+class ProductosUpdate(UpdateView):
+	model = Productos
+	form_class = ProductosForm
+	template_name = 'productos_editar.html'
+	success_url = reverse_lazy('productos_listar')
+
+# Vista para eliminar el producto
+class ProductosDelete(DeleteView):
+	model = Productos
+	template_name = 'productos_eliminar.html'
+	success_url = reverse_lazy('productos_listar')
+
