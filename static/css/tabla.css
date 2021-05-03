@@ -1,0 +1,53 @@
+body{
+    font-family: "Calibri";
+}
+
+.main-container{
+    margin: 10px auto;
+    width: 750px;
+}
+
+table{
+    background: whitesmoke;
+    text-align: left;
+    border-collapse: collapse;
+    color:black;
+    width: 85%;
+}
+
+th, td{
+    padding: 15px;
+}
+
+thead{
+    background: rgb(116, 0, 0);
+    color: whitesmoke;
+}
+
+tr:nth-child(even){
+    background: #ddd;
+}
+
+tr:hover{
+    background: rgb(133, 32, 32);
+    color: whitesmoke;
+}
+
+a{
+    text-decoration: none;
+    font-size: 18px;
+    color: black;
+}
+
+a:hover{
+    text-decoration: underline;
+    color: whitesmoke;
+    text-transform: uppercase;
+}
+
+h1{
+    text-align: center;
+    font-size: 40px;
+    color: whitesmoke;
+    margin-top: 20px;
+}

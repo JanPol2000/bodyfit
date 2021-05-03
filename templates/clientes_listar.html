@@ -2,35 +2,58 @@
 <html>
 <head>
 	<title>Clientes</title>
+	<meta charset="UTF-8">
+		<title>Inicio</title>
+		<style>
+			@import "../static/css/estilo_barra.css";
+			@import "../static/css/tabla.css";
+		</style>
 </head>
 <body>
-	<h1>Clientes</h1>
-	<table>
-		<thead>
-			<tr>
-				<th>ID</th>
-				<th>Nombre</th>
-				<th>Apellido Paterno</th>
-				<th>Apellido Materno</th>
-				<th>Apodo</th>
-				<th>Opcion</th>
-			</tr>
-		</thead>
-		<tbody>
-			<!-- Se listan todos los clientes -->
-			{% for cliente in clientes %}
+	<div class="logo"><a href="#"><img src="../static/img/logo_bf_1.png"></a></div>
+		<nav>
+			<ul>
+				<li><a href="{% url 'clientes_listar' %}">Inicio</a></li>
+				<li><a href="{% url 'clientes_listar' %}">Clientes</a></li>
+				<li><a href="{% url 'clientes_listar' %}">Membresias</a></li>
+				<li><a href="{% url 'clientes_listar' %}">Inventario</a></li>
+				<li><a href="{% url 'clientes_listar' %}">Productos</a></li>
+				<li><a href="{% url 'clientes_listar' %}">Ventas</a></li>
+			</ul>
+		</nav>
+		<h1>Clientes</h1>
+	<div class="main-container">
+		<table>
+			<thead>
 				<tr>
-					<td>{{ cliente.idclien }}</td>
-					<td>{{ cliente.nombre }}</td>
-					<td>{{ cliente.apellidopat }}</td>
-					<td>{{ cliente.apellidomat }}</td>
-					<td>{{ cliente.apodo }}</td>
-					<!-- Redirige a la pagina para editar o elimnar al cliente -->
-					<td><a href="{% url 'clientes_editar' cliente.idclien %}">EDITAR </a><a href="{% url 'clientes_eliminar' cliente.idclien %}">ELIMINAR</a></td>
+					<th>ID</th>
+					<th>Nombre</th>
+					<th>Apellido Paterno</th>
+					<th>Apellido Materno</th>
+					<th>Apodo</th>
+					<th>Opcion</th>
 				</tr>
-			{% endfor %}
-		</tbody>
-	</table>
+			</thead>
+			<tbody>
+				<!-- Se listan todos los clientes -->
+				{% for cliente in clientes %}
+					<tr>
+						<td>{{ cliente.idclien }}</td>
+						<td>{{ cliente.nombre }}</td>
+						<td>{{ cliente.apellidopat }}</td>
+						<td>{{ cliente.apellidomat }}</td>
+						<td>{{ cliente.apodo }}</td>
+						<!-- Redirige a la pagina para editar o elimnar al cliente -->
+						<td>
+							<a href="{% url 'clientes_editar' cliente.idclien %}">Editar </a>
+							<a href="{% url 'clientes_eliminar' cliente.idclien %}"> Eliminar</a>
+						</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>	
+	
 	<!-- Redirige a la pagina para crear cliente -->
 	<a href="{% url 'clientes_crear' %}">CREAR</a>
 </body>

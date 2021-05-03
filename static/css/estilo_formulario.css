@@ -1,0 +1,40 @@
+.form-register{
+    width: 410px;
+    background: none;
+    padding: 20px;
+    margin: auto;
+    margin-top: 80px;
+    border-radius: 4px;
+    font-family: Calibri;
+    color: whitesmoke;
+    box-shadow: 7px 13px 35px rgb(46, 46, 46);
+}
+
+.form-register h1{
+    font-size: 22px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.controls{
+    width: 95%;
+    background: none;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    border: 1px solid rgb(116, 0, 0);
+    font-family: Calibri;
+    color: whitesmoke;
+    font-size: 18px;
+}
+
+.form-register .boton{
+    width: 100%;
+    background: rgb(116, 0, 0);
+    border: none;
+    padding: 12px;
+    color: whitesmoke;
+    margin: 10px 0;
+    font-family: "Calibri";
+    font-size: 20px;
+}
