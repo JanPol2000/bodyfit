@@ -1,24 +1,25 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
 		<title>Inicio</title>
 		<style>
-			@import "../static/css/estilo_barra.css";
+			@import "{% static 'css/estilo_barra.css' %}";
 		</style>
 	</head>
 	<body>
-		<div class="logo"><a href="#"><img src="../static/img/logo_bf_1.png"></a></div>
+		<div class="logo"><a href="#"><img src="{% static 'img/logo_bf_1.png' %}"></a></div>
 		<nav>
 			<ul>
 				<li><a href="{% url 'clientes_listar' %}">Inicio</a></li>
 				<li><a href="{% url 'clientes_listar' %}">Clientes</a></li>
 					<ul>
-						<li><a href="clientes_crear.html">Agregar</a></li>
-						<li><a href="clientes_editar.html">Editar</a></li>
-						<li><a href="clientes_listar.html">Lista</a></li>
+						<li><a href="{% url 'clientes_listar' %}">Agregar</a></li>
+						<li><a href="{% url 'clientes_listar' %}">Editar</a></li>
+						<li><a href="{% url 'clientes_listar' %}">Lista</a></li>
 					</ul>
-				<li><a href="{% url 'clientes_listar' %}">Membresias</a></li>
+				<li><a href="{% url 'membresia_listar' %}">Membresias</a></li>
 				<li><a href="{% url 'clientes_listar' %}">Inventario</a></li>
 				<li><a href="{% url 'clientes_listar' %}">Productos</a></li>
 				<li><a href="{% url 'clientes_listar' %}">Ventas</a></li>

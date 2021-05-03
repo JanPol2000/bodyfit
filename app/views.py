@@ -127,3 +127,4 @@ class ProductosDelete(DeleteView):
 	template_name = 'productos_eliminar.html'
 	success_url = reverse_lazy('productos_listar')
 
+
