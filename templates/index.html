@@ -1,9 +1,29 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Inicio</title>
-</head>
-<body>
-	<a href="{% url 'clientes_listar' %}">Clientes</a>
-</body>
+	<head>
+		<meta charset="UTF-8">
+		<title>Inicio</title>
+		<style>
+			@import "../static/css/estilo_barra.css";
+		</style>
+	</head>
+	<body>
+		<div class="logo"><a href="#"><img src="../static/img/logo_bf_1.png"></a></div>
+		<nav>
+			<ul>
+				<li><a href="{% url 'clientes_listar' %}">Inicio</a></li>
+				<li><a href="{% url 'clientes_listar' %}">Clientes</a></li>
+					<ul>
+						<li><a href="clientes_crear.html">Agregar</a></li>
+						<li><a href="clientes_editar.html">Editar</a></li>
+						<li><a href="clientes_listar.html">Lista</a></li>
+					</ul>
+				<li><a href="{% url 'clientes_listar' %}">Membresias</a></li>
+				<li><a href="{% url 'clientes_listar' %}">Inventario</a></li>
+				<li><a href="{% url 'clientes_listar' %}">Productos</a></li>
+				<li><a href="{% url 'clientes_listar' %}">Ventas</a></li>
+			</ul>
+		</nav>
+		<div class="fondo"><a herf="#"><img src="../static/img/bfgympic1_half.png"></a></div>
+	</body>
 </html>

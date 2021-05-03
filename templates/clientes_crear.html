@@ -1,19 +1,33 @@
 <!DOCTYPE html>
 <html>
-<head>
+	<head>
+		<meta charset="UTF-8">
 	<title>Crear cliente</title>
-</head>
-<body>
-	<h1>Crear cliente</h1>
-	<!-- El metodo post se utiliza para enviar la informacion del formulario
-			de manera oculta -->
-	<form method="post">
-		<!-- Se necesita de csrf_token cuando se usa el metodo post -->
-		{% csrf_token %}
-		<!-- La vista envia el formulario ya empacado en la variable form -->
-		{{ form }}
-		<!-- Al presionar el boton se guarda lo rellenado y se envia a la vista -->
-		<button type="submit">CREAR</button>
-	</form>
-</body>
+	<style>
+		@import "../static/css/estilo_formulario.css";
+		@import "../static/css/estilo_barra.css";
+	</style>
+	</head>
+	<body>
+		<div class="logo"><a href="#"><img src="../static/img/logo_bf_1.png"></a></div>
+		<nav>
+			<ul>
+				<li><a href="{% url 'clientes_listar' %}">Inicio</a></li>
+				<li><a href="{% url 'clientes_listar' %}">Clientes</a></li>
+				<li><a href="{% url 'clientes_listar' %}">Membresias</a></li>
+				<li><a href="{% url 'clientes_listar' %}">Inventario</a></li>
+				<li><a href="{% url 'clientes_listar' %}">Productos</a></li>
+				<li><a href="{% url 'clientes_listar' %}">Ventas</a></li>
+			</ul>
+		</nav>
+		<section class="form-register">
+			<h1>Formulario Registro</h1>
+			<input class="controls" type="text" name="id" id="id" placeholder="Ingrese el ID">
+			<input class="controls" type="text" name="nombres" id="nombres" placeholder="Ingrese el Nombre">
+			<input class="controls" type="text" name="paterno" id="paterno" placeholder="Ingrese el Apellido Paterno">
+			<input class="controls" type="text" name="materno" id="materno" placeholder="Ingrese el Apellido Materno">
+			<input class="controls" type="text" name="apodo" id="apodo" placeholder="Ingrese el Apodo">
+			<input class="boton" type="submit" value="Registrar">
+		</section>
+	</body>
 </html>
