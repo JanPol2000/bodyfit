@@ -1,4 +1,5 @@
 from django.db import models
+
 class Proveedor(models.Model):
     idprov = models.AutoField(db_column='idProv', primary_key=True)  # Field name made lowercase.
     nombreprov = models.CharField(db_column='nombreProv', max_length=20)  # Field name made lowercase.
@@ -11,7 +12,7 @@ class Proveedor(models.Model):
 class Membresia(models.Model):
     idmem = models.AutoField(db_column='idMem', primary_key=True)  # Field name made lowercase.
     nombremem = models.CharField(db_column='nombreMem', max_length=20)  # Field name made lowercase.
-    duracion = models.IntegerField()
+    duracion = models.DateField()
     preciomem = models.FloatField(db_column='precioMem')  # Field name made lowercase.
 
     class Meta:
