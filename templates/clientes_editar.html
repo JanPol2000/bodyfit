@@ -9,16 +9,25 @@
 	</style>
 	</head>
 	<body>
-		<div class="logo"><a href="#"><img src="../static/img/logo_bf_1.png"></a></div>
+		<div id="logo"><a href="#"><img src="../static/img/logo_bf_1.png"></a></div>
 		<nav>
-			<ul>
-				<li><a href="{% url 'clientes_listar' %}">Inicio</a></li>
-				<li><a href="{% url 'clientes_listar' %}">Clientes</a></li>
-				<li><a href="{% url 'clientes_listar' %}">Membresias</a></li>
-				<li><a href="{% url 'clientes_listar' %}">Inventario</a></li>
-				<li><a href="{% url 'clientes_listar' %}">Productos</a></li>
-				<li><a href="{% url 'clientes_listar' %}">Ventas</a></li>
-			</ul>
+			<div id="menu">
+				<ul>
+					<li id="item"><a href="index.html">Inicio</a></li>
+					<li id="item"><a href="#">Clientes</a>
+						<ul id="desplegable">
+							<li><a href="clientes_crear.html">Agregar</a></li>
+							<li><a href="clientes_buscar.html">Editar</a></li>
+							<li><a href="clientes_buscar.html">Eliminar</a></li>
+							<li><a href="clientes_listar.html">Lista</a></li>
+						</ul>
+					</li>
+					<li id="item"><a href="#">Membresias</a></li>
+					<li id="item"><a href="#">Inventario</a></li>
+					<li id="item"><a href="#">Productos</a></li>
+					<li id="item"><a href="#">Proveedor</a></li>
+					<li id="item"><a href="#">Ventas</a></li>
+				</ul>
 		</nav>
 		<section class="form-register">
 			<h1>Edicion del Cliente</h1>

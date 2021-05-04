@@ -11,25 +11,58 @@ nav{
     overflow: auto;
 }
 
-ul{
-    padding: 0;
-    margin: 0 0 0 150px;
+#menu ul{
     list-style: none;
+    margin: 0 0 0 150px;
+    padding: 0;
 }
 
-li{
+#menu #item{
     float: left;
 }
 
-nav>li{
-    float: left;
-}
-
-nav li:hover > ul{
+#menu #item a{
+    background: whitesmoke;
+    color: black;
+    width: 120px;
+    padding: 35px 15px;
     display: block;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    text-align: center;
+    text-decoration: none;
 }
 
-.logo img{
+#menu #desplegable a{
+    background: whitesmoke;
+    color: black;
+    width: 120px;
+    padding: 15px 15px;
+    display: block;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    text-align: center;
+    text-decoration: none;
+}
+
+#menu #desplegable{
+    display: none;
+    margin: 0 0 0 0px;
+}
+
+#menu #item:hover #desplegable{
+    display: block;
+    position: absolute;
+}
+
+#menu #item a:hover{
+    background: red;
+    transition: 0.5s;
+    color: whitesmoke;
+    text-transform: uppercase;
+}
+
+#logo img{
     position: absolute;
     width: 80px;
     height: 80px;
@@ -37,26 +70,25 @@ nav li:hover > ul{
     margin-left: 50px;
 }
 
-.fondo img{
-    position: center;
+#fondo img{
+    position: left;
     width: 400px;
     height: 800px;
     margin: auto;
 }
 
-nav a{
-    width: 100px;
-    display: block;
-    padding: 35px 15px;
-    text-decoration: none;
-    font-family: Arial, Helvetica;
-    color: black;
+#mensaje h1{
+    color: whitesmoke;
+    font-size: 100px;
+    font-family: "Calibri";
     text-align: center;
+    margin-top: 200px;
+    margin-bottom: -30px;
 }
 
-nav a:hover{
-    background: red;
-    transition: 0.5s;
+#mensaje h2{
     color: whitesmoke;
-    text-transform: uppercase;
+    font-size: 30px;
+    font-family: "Calibri";
+    text-align: center;
 }
