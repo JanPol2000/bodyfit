@@ -1,21 +1,48 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Confirmar</title>
+	<meta charset="UTF-8">
+		<title>Eliminar</title>
+		<style>
+			@import "../static/css/estilo_barra.css";
+			@import "../static/css/estilo_eliminar.css";
+		</style>
+	</head>
+	<body>
+		<div id="logo"><a href="#"><img src="../static/img/logo_bf_1.png"></a></div>
+		<nav>
+			<div id="menu">
+				<ul>
+					<li id="item"><a href="index.html">Inicio</a></li>
+					<li id="item"><a href="#">Clientes</a>
+						<ul id="desplegable">
+							<li><a href="clientes_crear.html">Agregar</a></li>
+							<li><a href="clientes_buscar.html">Editar</a></li>
+							<li><a href="clientes_buscar.html">Eliminar</a></li>
+							<li><a href="clientes_listar.html">Lista</a></li>
+						</ul>
+					</li>
+					<li id="item"><a href="#">Membresias</a></li>
+					<li id="item"><a href="#">Inventario</a></li>
+					<li id="item"><a href="#">Productos</a></li>
+					<li id="item"><a href="#">Proveedor</a></li>
+					<li id="item"><a href="#">Ventas</a></li>
+				</ul>
+		</nav>
 </head>
 <body>
-	<h1>Confirmar eliminacion</h1>
 	<!-- El metodo post se utiliza para enviar la informacion del formulario
 			de manera oculta -->
-	<form method="post">
-		<!-- Se necesita de csrf_token cuando se usa el metodo post -->
-		{% csrf_token %}
-		<!-- La variable object la envia la vista -->
-		<h1>Desea eliminar al cliente {{ object.nombre }}</h1>
-		<!-- Al presionar el boton devuelve la confirmacion a la vista -->
-		<button type="submit" name="button">CONFIRMAR</button>
-		<!-- Redirige a la lista de clientes -->
-		<a href="{% url 'clientes_listar' %}">Cancelar</a>
+	<form method="post"></form>
+		<section id="delete">
+			<!-- Se necesita de csrf_token cuando se usa el metodo post -->
+			{% csrf_token %}
+			<!-- La variable object la envia la vista -->
+			<h1>Desea eliminar al cliente?</h1>
+			<input class="controls" type="text" name="eliminar" id="eliminar" placeholder="{{ object.nombre }}">
+            <input class="boton1" type="submit" value="Confirmar">
+			<input class="boton2" type="submit" value="Cancelar">
+		</section>
 	</form>
 </body>
 </html>

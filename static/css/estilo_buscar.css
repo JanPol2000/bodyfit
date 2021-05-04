@@ -1,5 +1,5 @@
-.form-register{
-    width: 410px;
+#form-register{
+    width: 500px;
     background: none;
     padding: 20px;
     margin: auto;
@@ -10,14 +10,15 @@
     box-shadow: 7px 13px 35px rgb(46, 46, 46);
 }
 
-.form-register h1{
-    font-size: 22px;
+#form-register h1{
+    font-size: 26px;
+    color: whitesmoke;
     margin-bottom: 20px;
     text-align: center;
 }
 
 .controls{
-    width: 95%;
+    width: 65%;
     background: none;
     padding: 10px;
     border-radius: 4px;
@@ -28,13 +29,13 @@
     font-size: 18px;
 }
 
-.form-register .boton{
-    width: 100%;
+#form-register .boton{
+    width: 25%;
     background: rgb(116, 0, 0);
     border: none;
     padding: 12px;
     color: whitesmoke;
-    margin: 10px 0;
+    margin: 10px 0 0 20px;
     font-family: "Calibri";
     font-size: 20px;
 }
