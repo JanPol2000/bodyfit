@@ -6,21 +6,30 @@
 		<title>Inicio</title>
 		<style>
 			@import "../static/css/estilo_barra.css";
-			@import "../static/css/tabla.css";
+			@import "../static/css/estilo_tabla.css";
 		</style>
 </head>
 <body>
-	<div class="logo"><a href="#"><img src="../static/img/logo_bf_1.png"></a></div>
-		<nav>
+	<div id="logo"><a href="#"><img src="../static/img/logo_bf_1.png"></a></div>
+	<nav>
+		<div id="menu">
 			<ul>
-				<li><a href="{% url 'clientes_listar' %}">Inicio</a></li>
-				<li><a href="{% url 'clientes_listar' %}">Clientes</a></li>
-				<li><a href="{% url 'clientes_listar' %}">Membresias</a></li>
-				<li><a href="{% url 'clientes_listar' %}">Inventario</a></li>
-				<li><a href="{% url 'clientes_listar' %}">Productos</a></li>
-				<li><a href="{% url 'clientes_listar' %}">Ventas</a></li>
+				<li id="item"><a href="index.html">Inicio</a></li>
+				<li id="item"><a href="#">Clientes</a>
+					<ul id="desplegable">
+						<li><a href="clientes_crear.html">Agregar</a></li>
+						<li><a href="clientes_buscar.html">Editar</a></li>
+						<li><a href="clientes_buscar.html">Eliminar</a></li>
+						<li><a href="clientes_listar.html">Lista</a></li>
+					</ul>
+				</li>
+				<li id="item"><a href="#">Membresias</a></li>
+				<li id="item"><a href="#">Inventario</a></li>
+				<li id="item"><a href="#">Productos</a></li>
+				<li id="item"><a href="#">Proveedor</a></li>
+				<li id="item"><a href="#">Ventas</a></li>
 			</ul>
-		</nav>
+	</nav>
 		<h1>Clientes</h1>
 	<div class="main-container">
 		<table>
@@ -31,7 +40,6 @@
 					<th>Apellido Paterno</th>
 					<th>Apellido Materno</th>
 					<th>Apodo</th>
-					<th>Opcion</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -43,18 +51,10 @@
 						<td>{{ cliente.apellidopat }}</td>
 						<td>{{ cliente.apellidomat }}</td>
 						<td>{{ cliente.apodo }}</td>
-						<!-- Redirige a la pagina para editar o elimnar al cliente -->
-						<td>
-							<a href="{% url 'clientes_editar' cliente.idclien %}">Editar </a>
-							<a href="{% url 'clientes_eliminar' cliente.idclien %}"> Eliminar</a>
-						</td>
 					</tr>
 				{% endfor %}
 			</tbody>
 		</table>
 	</div>	
-	
-	<!-- Redirige a la pagina para crear cliente -->
-	<a href="{% url 'clientes_crear' %}">CREAR</a>
 </body>
 </html>

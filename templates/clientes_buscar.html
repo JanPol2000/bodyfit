@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="UTF-8">
-		<title>Eliminar</title>
+    <head>
+	    <meta charset="UTF-8">
+		<title>Buscar Cliente</title>
 		<style>
 			@import "../static/css/estilo_barra.css";
-			@import "../static/css/estilo_eliminar.css";
+            @import "../static/css/estilo_buscar.css";
 		</style>
 	</head>
 	<body>
@@ -29,20 +29,10 @@
 					<li id="item"><a href="#">Ventas</a></li>
 				</ul>
 		</nav>
-</head>
-<body>
-	<!-- El metodo post se utiliza para enviar la informacion del formulario
-			de manera oculta -->
-	<form method="post"></form>
-		<section id="delete">
-			<!-- Se necesita de csrf_token cuando se usa el metodo post -->
-			{% csrf_token %}
-			<!-- La variable object la envia la vista -->
-			<h1>Desea eliminar al cliente?</h1>
-			<input class="controls" type="text" name="eliminar" id="eliminar" placeholder="{{ object.nombre }}">
-            <input class="boton1" type="submit" value="Confirmar">
-			<input class="boton2" type="submit" value="Cancelar">
-		</section>
-	</form>
-</body>
+        <section id="form-register">
+            <h1>Buscar Cliente</h1>
+            <input class="controls" type="text" name="buscar" id="buscar" placeholder="Buscar">
+            <input class="boton" type="submit" value="Buscar">
+        </section>
+    </body>
 </html>

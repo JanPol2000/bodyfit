@@ -1,4 +1,4 @@
-.form-register{
+#delete{
     width: 410px;
     background: none;
     padding: 20px;
@@ -10,8 +10,9 @@
     box-shadow: 7px 13px 35px rgb(46, 46, 46);
 }
 
-.form-register h1{
-    font-size: 22px;
+#delete h1{
+    font-size: 26px;
+    color: whitesmoke;
     margin-bottom: 20px;
     text-align: center;
 }
@@ -28,17 +29,24 @@
     font-size: 18px;
 }
 
-.form-register .boton{
-    width: 100%;
+#delete .boton1{
+    width: 45%;
     background: rgb(116, 0, 0);
     border: none;
     padding: 12px;
     color: whitesmoke;
-    margin: 10px 0;
+    margin: 10px 0 0 0px;
     font-family: "Calibri";
     font-size: 20px;
 }
 
-#form-register .boton:hover{
-    border: whitesmoke;
+#delete .boton2{
+    width: 45%;
+    background: rgb(116, 0, 0);
+    border: none;
+    padding: 12px;
+    color: whitesmoke;
+    margin: 10px 0 0 35px;
+    font-family: "Calibri";
+    font-size: 20px;
 }
