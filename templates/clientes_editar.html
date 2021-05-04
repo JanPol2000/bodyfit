@@ -13,13 +13,13 @@
 		<nav>
 			<div id="menu">
 				<ul>
-					<li id="item"><a href="index.html">Inicio</a></li>
+					<li id="item"><a href="{% url 'index' %}">Inicio</a></li>
 					<li id="item"><a href="#">Clientes</a>
 						<ul id="desplegable">
-							<li><a href="clientes_crear.html">Agregar</a></li>
-							<li><a href="clientes_buscar.html">Editar</a></li>
-							<li><a href="clientes_buscar.html">Eliminar</a></li>
-							<li><a href="clientes_listar.html">Lista</a></li>
+							<li><a href="{% url 'clientes_crear' %}">Agregar</a></li>
+							<li><a href="{% url 'clientes_buscar' 1 %}">Editar</a></li>
+							<li><a href="{% url 'clientes_buscar' 2 %}">Eliminar</a></li>
+							<li><a href="{% url 'clientes_listar' %}">Lista</a></li>
 						</ul>
 					</li>
 					<li id="item"><a href="#">Membresias</a></li>
@@ -30,14 +30,17 @@
 				</ul>
 		</nav>
 		<section class="form-register">
-			<h1>Edicion del Cliente</h1>
-			<input class="controls" type="text" name="id" id="id" placeholder="ID">
-			<input class="controls" type="text" name="nombres" id="nombres" placeholder="Ingrese el Nombre">
-			<input class="controls" type="text" name="paterno" id="paterno" placeholder="Ingrese el Apellido Paterno">
-			<input class="controls" type="text" name="materno" id="materno" placeholder="Ingrese el Apellido Materno">
-			<input class="controls" type="text" name="apodo" id="apodo" placeholder="Ingrese el Apodo">
-			<input class="boton" type="submit" value="Confirmar">
-			<input class="boton" type="submit" value="Cancelar">
+			<form method="post">
+				{% csrf_token %}
+				<h1>Edicion del Cliente</h1>
+				<p>ID Cliente: {{ cliente.idclien }}</p>
+				<input class="controls" type="text" name="nombre" id="nombre" placeholder="{{ cliente.nombre }}" value='{{ cliente.nombre }}'>
+				<input class="controls" type="text" name="apellidopat" id="apellidopat" placeholder="{{ cliente.apellidopat }}" value='{{ cliente.apellidopat }}'>
+				<input class="controls" type="text" name="apellidomat" id="apellidomat" placeholder="{{ object.apellidomat }}" value='{{ cliente.apellidomat }}'>
+				<input class="controls" type="text" name="apodo" id="apodo" placeholder="{{ cliente.apodo }}" value='{{ cliente.apodo }}'>
+				<input class="boton" type="submit" value="Confirmar">
+			</form>
+			<a href="{% url 'index' %}"><input class="boton" type="submit" value="Cancelar"></a>
 		</section>
 	</body>
 </html>

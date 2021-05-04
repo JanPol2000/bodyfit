@@ -24,6 +24,7 @@ urlpatterns = [
     # Rutas para el CRUD del cliente
     path('clientes_listar/', ClientesList.as_view(), name='clientes_listar'),
     path('clientes_crear/', ClientesCreate.as_view(), name='clientes_crear'),
+    path('clientes_buscar/<int:pk>', ClientesFind.as_view(), name='clientes_buscar'),
     path('clientes_editar/<int:pk>', ClientesUpdate.as_view(), name='clientes_editar'),
     path('clientes_eliminar/<int:pk>', ClientesDelete.as_view(), name='clientes_eliminar'),
     # Rutas para el CRUD de la membresia
@@ -41,4 +42,6 @@ urlpatterns = [
     path('productos_crear/', ProductosCreate.as_view(), name='productos_crear'),
     path('productos_editar/<int:pk>', ProductosUpdate.as_view(), name='productos_editar'),
     path('productos_eliminar/<int:pk>', ProductosDelete.as_view(), name='productos_eliminar'),
+    # Ruta no encontrado
+    path('not_found/', not_found, name='not_found'),
 ]

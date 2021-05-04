@@ -9,34 +9,17 @@
 		</style>
 	</head>
 	<body>
-<<<<<<< HEAD
-		<div class="logo"><a href="#"><img src="{% static 'img/logo_bf_1.png' %}"></a></div>
-		<nav>
-			<ul>
-				<li><a href="{% url 'clientes_listar' %}">Inicio</a></li>
-				<li><a href="{% url 'clientes_listar' %}">Clientes</a></li>
-					<ul>
-						<li><a href="{% url 'clientes_listar' %}">Agregar</a></li>
-						<li><a href="{% url 'clientes_listar' %}">Editar</a></li>
-						<li><a href="{% url 'clientes_listar' %}">Lista</a></li>
-					</ul>
-				<li><a href="{% url 'membresia_listar' %}">Membresias</a></li>
-				<li><a href="{% url 'clientes_listar' %}">Inventario</a></li>
-				<li><a href="{% url 'clientes_listar' %}">Productos</a></li>
-				<li><a href="{% url 'clientes_listar' %}">Ventas</a></li>
-			</ul>
-=======
 		<div id="logo"><a href="#"><img src="../static/img/logo_bf_1.png"></a></div>
 		<nav>
 			<div id="menu">
 				<ul>
-					<li id="item"><a href="index.html">Inicio</a></li>
+					<li id="item"><a href="{% url 'index' %}">Inicio</a></li>
 					<li id="item"><a href="#">Clientes</a>
 						<ul id="desplegable">
-							<li><a href="clientes_crear.html">Agregar</a></li>
-							<li><a href="clientes_buscar.html">Editar</a></li>
-							<li><a href="clientes_buscar.html">Eliminar</a></li>
-							<li><a href="clientes_listar.html">Lista</a></li>
+							<li><a href="{% url 'clientes_crear' %}">Agregar</a></li>
+							<li><a href="{% url 'clientes_buscar' 1 %}">Editar</a></li>
+							<li><a href="{% url 'clientes_buscar' 2 %}">Eliminar</a></li>
+							<li><a href="{% url 'clientes_listar' %}">Lista</a></li>
 						</ul>
 					</li>
 					<li id="item"><a href="#">Membresias</a></li>
@@ -45,7 +28,6 @@
 					<li id="item"><a href="#">Proveedor</a></li>
 					<li id="item"><a href="#">Ventas</a></li>
 				</ul>
->>>>>>> 1add59833bc0b96a7ea8eb6158ef63bde4642b1c
 		</nav>
 		<div id="fondo"><a herf="#"><img src="../static/img/bfgympic1_half.png"></a></div>
 	</body>
