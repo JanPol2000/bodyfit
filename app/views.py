@@ -1,9 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import UpdateView, DeleteView, CreateView, ListView
 from .models import *
 from .forms import *
-from django.urls import reverse_lazy
-
+from django.urls import reverse_lazy, reverse 
+from django.db import connection
+ 
 class Inicio(ListView):
 	def get(self, request, *args, **kwargs):
 		return render(request, 'index.html')
@@ -20,17 +21,42 @@ class ClientesList(ListView):
 
 # Vista para crear los clientes
 class ClientesCreate(CreateView):
-	model = Clientes
-	form_class = ClientesForm
-	template_name = 'clientes_crear.html'
-	success_url = reverse_lazy('clientes_listar')
+	def get(self, request, *args, **kwargs):
+		try:
+			idclien = Clientes.objects.latest('idclien').idclien
+			idclien += 1
+		except:
+			idclien = 1
+
+		contexto = {
+			'idclien':idclien,
+		}
+		return render(request, 'clientes_crear.html', contexto)
+
+	def post(self, request, *args, **kwargs):
+		form = ClientesForm(request.POST)
+		if form.is_valid():
+			form.save()
+			return redirect('clientes_listar')
+		return render(request, 'clientes_crear.html')
 
 # Vista para editar los clientes
 class ClientesUpdate(UpdateView):
-	model = Clientes
-	form_class = ClientesForm
-	template_name = 'clientes_editar.html'
-	success_url = reverse_lazy('clientes_listar')
+	def get(self, request, *args, **kwargs):
+		cliente = Clientes.objects.filter(idclien=kwargs['pk'])
+
+		contexto = {
+			'cliente': cliente[0],
+		}
+		return render(request, 'clientes_editar.html', contexto)
+
+	def post(self, request, *args, **kwargs):
+		cliente = Clientes.objects.get(idclien=kwargs['pk'])
+		form = ClientesForm(request.POST, instance=cliente)
+		if form.is_valid():
+			form.save()
+			return redirect('clientes_listar')
+		return render(request, 'clientes_crear.html')
 
 # Vista para eliminar los clientes
 class ClientesDelete(DeleteView):
@@ -38,6 +64,25 @@ class ClientesDelete(DeleteView):
 	template_name = 'clientes_eliminar.html'
 	success_url = reverse_lazy('clientes_listar') 
 
+#Vista para buscar a los clientes
+class ClientesFind(ListView):
+	def get(self, request, *args, **kwargs):
+		return render(request, 'clientes_buscar.html')
+
+	def post(self, request, *args, **kwargs):
+		idclien = request.POST.get('idclien')
+		try:
+			cliente = Clientes.objects.get(idclien=idclien)
+		except:
+			return redirect('not_found')
+
+		if kwargs['pk'] == 1:
+			return redirect(reverse('clientes_editar', kwargs={'pk':idclien}))
+		elif kwargs['pk'] == 2:
+			return redirect(reverse('clientes_eliminar', kwargs={'pk':idclien}))
+
+def not_found(request):
+	return render(request, 'not_found.html')
 # MEMBRESIA
 # Vista para listar la membresia
 class MembresiaList(ListView):
@@ -126,4 +171,5 @@ class ProductosDelete(DeleteView):
 	model = Productos
 	template_name = 'productos_eliminar.html'
 	success_url = reverse_lazy('productos_listar')
+
 
