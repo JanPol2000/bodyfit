@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Clientes</title>
+	<title>Reporte de Ventas</title>
 	<meta charset="UTF-8">
-		<title>Inicio</title>
 		<style>
 			@import "../static/css/estilo_barra.css";
 			@import "../static/css/estilo_tabla.css";
@@ -35,33 +34,28 @@
                 </li>
 			</ul>
 	</nav>
-	<div id="fondo_izq"><a herf="#"><img src="../static/img/wallpaper_2.png"></a></div>	
-	<div id="fondo_der"><a herf="#"><img src="../static/img/wallpaper_1.png"></a></div>	
-	<h1>Clientes</h1>
 	<div class="main-container">
+        <h1>Reporte de ventas</h1>
 		<table>
 			<thead>
 				<tr>
 					<th>ID</th>
-					<th>Nombre</th>
-					<th>Apellido Paterno</th>
-					<th>Apellido Materno</th>
-					<th>Apodo</th>
+					<th>Importe</th>
+					<th>Fecha</th>
+					<th>Hora</th>
 				</tr>
 			</thead>
 			<tbody>
-				<!-- Se listan todos los clientes -->
-				{% for cliente in clientes %}
 					<tr>
-						<td>{{ cliente.idclien }}</td>
-						<td>{{ cliente.nombre }}</td>
-						<td>{{ cliente.apellidopat }}</td>
-						<td>{{ cliente.apellidomat }}</td>
-						<td>{{ cliente.apodo }}</td>
+						<td>{{ ventas.idv }}</td>
+						<td>{{ ventas.total }}</td>
+						<td>{{ ventas.fecha}}</td>
+						<td>{{ ventas.hora }}</td>
 					</tr>
 				{% endfor %}
 			</tbody>
 		</table>
+        <h2>TOTAL: $ (AMOUNT)</h2>
 	</div>	
 </body>
 </html>

@@ -1,5 +1,8 @@
-body{
-    font-family: "Calibri";
+@font-face {
+    font-family: "bahnschrift";
+    src: url("../fonts/bahnschrift.ttf") format("truetype");
+    font-family: "amazon";
+    src: url("../fonts/AmazonEmberCdRC.ttf") format("truetype");
 }
 
 .main-container{
@@ -7,13 +10,15 @@ body{
 }
 
 table{
+    
     background: whitesmoke;
     text-align: left;
+    font-family: "bahnschrift";
     border-collapse: collapse;
     color:black;
-    width: 75%;
-    margin-left: auto;
-    margin-right: auto;
+    width: 60%;
+    margin-left: 20%;
+    margin-top: 13%;
 }
 
 th, td{
@@ -23,6 +28,7 @@ th, td{
 thead{
     background: rgb(116, 0, 0);
     color: whitesmoke;
+    font-family: "amazon";
 }
 
 tr:nth-child(even){
@@ -46,10 +52,40 @@ a:hover{
     text-transform: uppercase;
 }
 
-h1{
-    text-align: center;
+.main-container h1{
+    width: 500px;
+    position: absolute;
+    left: 50%;
+    margin-left: -250px;
     font-size: 65px;
+    font-family: "amazon";
     color: whitesmoke;
-    margin-top: 30px;
+    margin-top: 7%;
     margin-bottom: 20px;
+}
+
+.main-container h2{
+    width: 500px;
+    position: absolute;
+    left: 50%;
+    margin-left: -250px;
+    font-size: 40px;
+    font-family: "amazon";
+    color: whitesmoke;
+}
+
+#fondo_izq img{
+    position: absolute;
+    display: block;
+    margin-left: 0%;
+    height: 655px;
+    width: 20%;
+}
+
+#fondo_der img{
+    position: absolute;
+    display: block;
+    margin-left: 75%;
+    height: 655px;
+    width: 25%;
 }

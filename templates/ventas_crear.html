@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Nueva Venta</title>
+		<style>
+			@import "../static/css/estilo_barra.css";
+            @import "../static/css/estilo_ventas.css";
+		</style>
+	</head>
+	<body>
+		<div id="logo"><a href="#"><img src="../static/img/logo_bf_1.png"></a></div>
+		<nav>
+			<div id="menu">
+				<ul>
+					<li id="item"><a href="index.html">Inicio</a></li>
+					<li id="item"><a href="#">Clientes</a>
+						<ul id="desplegable">
+							<li><a href="clientes_crear.html">Agregar</a></li>
+							<li><a href="clientes_buscar.html">Editar</a></li>
+							<li><a href="clientes_buscar.html">Eliminar</a></li>
+							<li><a href="clientes_listar.html">Lista</a></li>
+						</ul>
+					</li>
+					<li id="item"><a href="#">Membresias</a></li>
+					<li id="item"><a href="#">Inventario</a></li>
+					<li id="item"><a href="#">Productos</a></li>
+					<li id="item"><a href="#">Proveedor</a></li>
+					<li id="item"><a href="#">Ventas</a>
+                        <ul id="desplegable">
+							<li><a href="ventas_crear.html">Nueva</a></li>
+							<li><a href="ventas_corte.html">Corte</a></li>
+						</ul>
+                    </li>
+				</ul>
+		</nav>
+        <div id="fondo_izq"><a herf="#"><img src="../static/img/item_1.png"></a></div>	
+		<div id="fondo_der"><a herf="#"><img src="../static/img/item_2.png"></a></div>	
+        <section class="form-register">
+			<h1>Registro de Ventas</h1>
+			<input class="controls" type="text" name="idv" id="idv" placeholder="ID de la Venta">
+            <input class="controls" type="text" name="idp" id="idp" placeholder="ID del Producto">
+			<input class="controls" type="text" name="nombrep" id="nombrep" placeholder="Nombre del Producto">
+			<input class="controls-a" type="text" name="precio" id="precio" placeholder="Precio">
+			<input class="controls-b" type="text" name="cantidad" id="cantidad" placeholder="Cantidad">
+			<input class="controls-a" type="text" name="fecha" id="fecha" placeholder="Fecha">
+            <input class="controls-b" type="text" name="hora" id="hora" placeholder="Hora">
+			<input class="boton1" type="submit" value="Registrar">
+            <input class="boton2" type="submit" value="Cancelar">
+		</section>
+	</body>
+</html>

@@ -1,5 +1,13 @@
+@font-face {
+    font-family: "cocogoose";
+    src: url("../fonts/Cocogoose\ Pro\ Semilight-trial.ttf") format("truetype");
+    font-family: "bahnschrift";
+    src: url("../fonts/bahnschrift.ttf") format("truetype");
+    font-family: "amazon";
+    src: url("../fonts/AmazonEmberCdRC.ttf") format("truetype");
+}
+
 body{
-    font-family: arial, helvetica;
     margin: 0;
     padding: 0;
     background: black;
@@ -27,8 +35,8 @@ nav{
     width: 120px;
     padding: 35px 15px;
     display: block;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 18px;
+    font-family: "amazon";
+    font-size: 20px;
     text-align: center;
     text-decoration: none;
 }
@@ -39,8 +47,8 @@ nav{
     width: 120px;
     padding: 15px 15px;
     display: block;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 18px;
+    font-family: "amazon";
+    font-size: 20px;
     text-align: center;
     text-decoration: none;
 }
@@ -71,16 +79,44 @@ nav{
 }
 
 #fondo img{
-    position: left;
-    width: 400px;
-    height: 800px;
-    margin: auto;
+    position: absolute;
+    width: 25.25%;
 }
+
+#titulo h1{
+    color: whitesmoke;
+    font-size: 90px;
+    font-family: "amazon";
+    margin-top: 12%;
+    margin-bottom: 0;
+    margin-left: 28%;
+}
+
+#titulo h2{
+    position: absolute;
+    color: whitesmoke;
+    font-size: 95px;
+    font-family: "cocogoose";
+    margin-top: 1%;
+    margin-bottom: 0;
+    margin-left: 52%;
+}
+
+#titulo h3{
+
+    color: red;
+    font-size: 90px;
+    font-family: "cocogoose";
+    margin-top: 1%;
+    margin-bottom: 0;
+    margin-left: 73%;
+}
+
 
 #mensaje h1{
     color: whitesmoke;
     font-size: 100px;
-    font-family: "Calibri";
+    font-family: "consolas";
     text-align: center;
     margin-top: 200px;
     margin-bottom: -30px;
@@ -89,6 +125,6 @@ nav{
 #mensaje h2{
     color: whitesmoke;
     font-size: 30px;
-    font-family: "Calibri";
+    font-family: "consolas";
     text-align: center;
 }
