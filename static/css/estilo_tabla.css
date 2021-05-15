@@ -10,18 +10,22 @@
 }
 
 table{
-    
-    background: whitesmoke;
+    opacity: 75%;
+    z-index: 0;
+    position:sticky;
+    margin-left: 20%;
+    margin-bottom: 1%;
+    padding: 2px;
+    background: none;
+    border: 2px;
     text-align: left;
     font-family: "bahnschrift";
-    border-collapse: collapse;
-    color:black;
+    color:whitesmoke;
     width: 60%;
-    margin-left: 20%;
-    margin-top: 13%;
 }
 
 th, td{
+    border: solid 1px rgb(116, 0, 0);
     padding: 15px;
 }
 
@@ -31,11 +35,7 @@ thead{
     font-family: "amazon";
 }
 
-tr:nth-child(even){
-    background: #ddd;
-}
-
-tr:hover{
+tr:hover td{
     background: rgb(133, 32, 32);
     color: whitesmoke;
 }
@@ -53,22 +53,19 @@ a:hover{
 }
 
 .main-container h1{
-    width: 500px;
-    position: absolute;
-    left: 50%;
-    margin-left: -250px;
+    position: relative;
+    text-align: center;
+    margin-top: 5%;
     font-size: 65px;
     font-family: "amazon";
     color: whitesmoke;
-    margin-top: 7%;
     margin-bottom: 20px;
 }
 
-.main-container h2{
-    width: 500px;
-    position: absolute;
-    left: 50%;
-    margin-left: -250px;
+ .main-container h2{
+    position: fixed;
+    text-align: left;
+    margin-left: 20%;
     font-size: 40px;
     font-family: "amazon";
     color: whitesmoke;
@@ -78,7 +75,7 @@ a:hover{
     position: absolute;
     display: block;
     margin-left: 0%;
-    height: 655px;
+    height: 87.5%;
     width: 20%;
 }
 
@@ -86,6 +83,6 @@ a:hover{
     position: absolute;
     display: block;
     margin-left: 75%;
-    height: 655px;
+    height: 87.5%;
     width: 25%;
 }

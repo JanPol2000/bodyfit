@@ -5,27 +5,23 @@
     src: url("../fonts/AmazonEmberCdRC.ttf") format("truetype");
 }
 
-#form-register{
+.form-register{
     position: absolute;
-    display: block;
-    margin-left: 32%;
-    margin-right: auto;
-    margin-top: 10%;
     width: 500px;
-    background: none;
+    background: none;    
     padding: 20px;
+    margin: 10% 33%;
     border-radius: 4px;
     font-family: "bahnschrift";
     color: whitesmoke;
     box-shadow: 7px 13px 35px rgb(46, 46, 46);
 }
-
-#form-register h1{
-    font-family: "amazon";
+ 
+.form-register h1{
     font-size: 36px;
-    color: whitesmoke;
     margin-bottom: 20px;
     text-align: center;
+    font-family: "amazon";
 }
 
 .controls{
@@ -40,7 +36,7 @@
     font-size: 18px;
 }
 
-#form-register .boton{
+.form-register .boton{
     width: 25%;
     background: rgb(116, 0, 0);
     border: none;
@@ -51,14 +47,15 @@
     font-size: 20px;
 }
 
-#fondo_der img{
+.fondo_der img{
+    position: absolute;
     margin-left: 56%;
     height: 650px;
     width: 650px;
 }
 
-#fondo_izq img{
-position: absolute;
+.fondo_izq img{
+    position: absolute;
     margin-left: -10%;
     height: 650px;
     width: 42%;

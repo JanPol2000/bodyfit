@@ -6,15 +6,15 @@
 }
 
 .form-register{
+    position: absolute;
     width: 410px;
     background: none;
-    padding: 20px;
-    margin: auto;
-    margin-top: 80px;
-    border-radius: 4px;
+    padding: 15px;
+    margin: 5% 20%;
+    border-radius: 2px;
     font-family: "bahnschrift";
     color: whitesmoke;
-    box-shadow: 7px 13px 35px rgb(46, 46, 46);
+    box-shadow: 5px 10px 30px rgb(46, 46, 46);
 }
 
 .form-register h1{
@@ -83,20 +83,61 @@
     font-size: 20px;
 }
 
-#fondo_izq img{
+.ticket{
     position: absolute;
+    width: 410px;
+    background: none;
+    padding: 15px;
+    margin: 5% 52%;
+    border-radius: 2px;
+    font-family: "bahnschrift";
+    color: whitesmoke;
+    box-shadow: 5px 10px 30px rgb(46, 46, 46);
+}
+
+.ticket .boton1{
+    width: 45%;
+    background: rgb(116, 0, 0);
+    border: none;
+    padding: 12px;
+    color: whitesmoke;
+    margin: 10px 0 0 0px;
+    font-family: "bahnschrift";
+    font-size: 20px;
+}
+
+.ticket .boton2{
+    width: 45%;
+    background: rgb(116, 0, 0);
+    border: none;
+    padding: 12px;
+    color: whitesmoke;
+    margin: 10px 0 0 35px;
+    font-family: "bahnschrift";
+    font-size: 20px;
+}
+
+.ticket h1{
+    font-size: 36px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: "amazon";    
+}
+
+#fondo_izq img{
+    position: fixed;
     display: block;
     margin-top: 6%;
     margin-left: -8%;
-    height: 70%;
+    height: 60%;
     width:28%;
 }
 
 #fondo_der img{
-    position: absolute;
+    position: fixed;
     display: block;
     margin-left: 78%;
     margin-top: 6%;
-    height: 70%;
+    height: 60%;
     width: 22%;
 }

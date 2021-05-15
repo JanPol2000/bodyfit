@@ -6,11 +6,11 @@
 }
 
 .form-register{
-    width: 410px;
+    position: absolute;
+    width: 410px; 
     background: none;
     padding: 20px;
-    margin: auto;
-    margin-top: 80px;
+    margin: 6% 35%;
     border-radius: 4px;
     font-family: "bahnschrift";
     color: whitesmoke;
@@ -47,7 +47,7 @@
     font-size: 20px;
 }
 
-#form-register .boton:hover{
+.form-register .boton:hover{
     border: whitesmoke;
 }
 
