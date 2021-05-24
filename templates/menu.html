@@ -1,42 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        @import "../static/css/estilo_menu.css";
-    </style>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		@import "../static/css/estilo_menu.css";
+	</style>
+	<link rel="icon" href="../static/img/icon_bf.ico">
 </head>
 <body>
-    <header id="header">
-        <nav id="contenedor">
-            <div id="logo"><a href="#"><img src="../static/img/logo_bf_1.png"></a></div>
-            <div id="menu">
-                <ul>
-					<li id="item"><a href="index.html">Inicio</a></li>
-					<li id="item"><a href="#">Clientes</a>
-						<ul id="desplegable">
+	<header>
+		<div class="bar"></div>
+		<div class="container">
+			<div class="logo"><a href="#"><img src="../static/img/logo_bf_1.png"></a></div>
+			<div class="menu">
+				<ul>
+					<li class="item"><a href="index.html">Inicio</a></li>
+					<li class="item"><a href="#">Clientes</a>
+						<ul class="desplegable">
 							<li><a href="clientes_crear.html">Agregar</a></li>
 							<li><a href="clientes_buscar.html">Editar</a></li>
 							<li><a href="clientes_buscar.html">Eliminar</a></li>
 							<li><a href="clientes_listar.html">Lista</a></li>
 						</ul>
 					</li>
-					<li id="item"><a href="#">Membresias</a></li>
-					<li id="item"><a href="#">Inventario</a></li>
-					<li id="item"><a href="#">Productos</a></li>
-					<li id="item"><a href="#">Proveedor</a></li>
-					<li id="item"><a href="#">Ventas</a>
-						<ul id="desplegable">
+					<li class="item"><a href="membresias.html">Membresias</a></li>
+					<li class="item"><a href="inventario.html">Inventario</a></li>
+					<li class="item"><a href="#">Productos</a>
+						<ul class="desplegable">
+							<li><a href="producto_crear.html">Agregar</a></li>
+							<li><a href="producto_buscar.html">Editar</a></li>
+							<li><a href="producto_buscar.html">Eliminar</a></li>
+						</ul>
+					</li>
+					<li class="item"><a href="#">Proveedor</a>
+						<ul class="desplegable">
+							<li><a href="proveedor_crear.html">Agregar</a></li>
+							<li><a href="proveedor_buscar.html">Editar</a></li>
+							<li><a href="proveedor_buscar.html">Eliminar</a></li>
+							<li><a href="proveedor_listar.html">Lista</a></li>
+						</ul>
+					</li>
+					<li class="item"><a href="#">Ventas</a>
+						<ul class="desplegable">
 							<li><a href="ventas_crear.html">Nueva</a></li>
 							<li><a href="ventas_corte.html">Corte</a></li>
 						</ul>
 					</li>
 				</ul>
-            </div>
-        </nav>
-    </header>
-    <div id="fondo"><a href="#"><img src="../static/img/inicio.jpg"></a></div>
+			</div>
+		</div>
+	</header>
+	<div class="imagen"><img src="../static/img/wallpaper_0.png"></div>
 </body>
 </html>

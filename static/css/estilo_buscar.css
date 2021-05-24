@@ -1,16 +1,9 @@
-@font-face {
-    font-family: "bahnschrift";
-    src: url("../fonts/bahnschrift.ttf") format("truetype");
-    font-family: "amazon";
-    src: url("../fonts/AmazonEmberCdRC.ttf") format("truetype");
-}
-
 .form-register{
     position: absolute;
     width: 500px;
     background: none;    
     padding: 20px;
-    margin: 10% 33%;
+    margin: 17% 33%;
     border-radius: 4px;
     font-family: "bahnschrift";
     color: whitesmoke;
@@ -38,25 +31,38 @@
 
 .form-register .boton{
     width: 25%;
-    background: rgb(116, 0, 0);
-    border: none;
+    outline: none;
+    background: none;
+    border-radius: 5px;
+    border: 2px solid rgb(116, 0, 0);
     padding: 12px;
     color: whitesmoke;
     margin: 10px 0 0 20px;
+    cursor: pointer;
+    transition: 0.5s;
     font-family: "bahnschrift";
     font-size: 20px;
 }
 
-.fondo_der img{
-    position: absolute;
-    margin-left: 56%;
-    height: 650px;
-    width: 650px;
+.boton:hover{
+    content: "";
+    border-radius: 5px;
+    background: rgb(116, 0, 0);
+    text-transform: uppercase;
 }
 
 .fondo_izq img{
-    position: absolute;
+    position: fixed;
+    top: 12%;
     margin-left: -10%;
-    height: 650px;
     width: 42%;
+    height: 88%;
+}
+
+.fondo_der img{
+    position: fixed;
+    top: 12%;
+    margin-left: 56%;
+    width: 44%;
+    height: 88%;
 }

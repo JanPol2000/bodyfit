@@ -1,0 +1,15 @@
+.imagen_izq img{
+    position: fixed;
+    display: block;
+    margin: 15% -8%;
+    width: 35%;
+    height: 60%;
+}
+
+.imagen_der img{
+    position: fixed;
+    display: block;
+    margin: 15% 77%;
+    width: 23%;
+    height: 60%;
+}

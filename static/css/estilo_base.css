@@ -1,0 +1,24 @@
+@font-face {
+    font-family: "cocogoose";
+    src: url("../fonts/Cocogoose\ Pro\ Semilight-trial.ttf") format("truetype");
+    font-family: "bahnschrift";
+    src: url("../fonts/bahnschrift.ttf") format("truetype");
+    font-family: "amazon";
+    src: url("../fonts/AmazonEmberCdRC.ttf") format("truetype");
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    background: url("../img/inicio.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}

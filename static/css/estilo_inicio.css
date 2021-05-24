@@ -1,0 +1,45 @@
+header{
+    position: fixed;
+}
+
+.img_izq img{
+    position: fixed;
+    z-index: 1;
+    max-width: 100%;
+    top: 12%;
+    width: 25%;
+    height: 88%;
+}
+
+.titulo h1{
+    position: absolute;
+    z-index: 1;
+    color: whitesmoke;
+    font-size: 90px;
+    font-family: "amazon";
+    margin-top: 20%;
+    margin-bottom: 0;
+    margin-left: 28%;
+}
+
+.titulo h2{
+    position: absolute;
+    z-index: 1;
+    color: whitesmoke;
+    font-size: 95px;
+    font-family: "cocogoose";
+    margin-top: 26%;
+    margin-bottom: 0;
+    margin-left: 52%;
+}
+
+.titulo h3{
+    position: absolute;
+    z-index: 1;
+    color: red;
+    font-size: 95px;
+    font-family: "cocogoose";
+    margin-top: 26%;
+    margin-bottom: 0;
+    margin-left: 73%;
+}

@@ -1,95 +1,90 @@
 @font-face {
-    font-family: "cocogoose";
-    src: url("../fonts/Cocogoose\ Pro\ Semilight-trial.ttf") format("truetype");
-    font-family: "bahnschrift";
-    src: url("../fonts/bahnschrift.ttf") format("truetype");
     font-family: "amazon";
     src: url("../fonts/AmazonEmberCdRC.ttf") format("truetype");
 }
 
-body{
-    margin: 0;
+* {
     padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
-#contenedor{
+header {
+    position: fixed !important;
+    z-index: 100;
+    width: 100%;
+    margin: 0 0 !important;
+    display: block;
+    overflow: auto;
+    font-family: "amazon";
+    font-size: 20px;
+    text-align: center;
+}
+
+.bar {
+    position: fixed !important;
     display: block;
     width: 100%;
-    overflow: auto;
-    margin: 0% 0%;
-}
-
-#header{
-    position: fixed;
+    height: 12.3%;
     background: whitesmoke;
-    padding: 5px 0;
-    left: 0%;
-    top: 0%;
-    width: 100%;
+    margin: 0 0 12.1% 0;
+    z-index: -1;
 }
 
-#header a{
-    color: black;
-    font-size: 20px;
-    font-family: "amazon";
-    text-decoration: none;
-}
-
-#menu ul{
+.container .menu ul {
+    list-style: none;
     margin: 0 0 0 150px;
     padding: 0;
-    list-style: none;
 }
 
-#menu #item{
+.menu .item {
     float: left;
 }
 
-#menu #item a{
-    width: 120px;
+.menu .item a {
+    background: whitesmoke;
+    color: black;
+    width: 150px;
     padding: 35px 15px;
     display: block;
-    font-size: 20px;
-    text-align: center;
     text-decoration: none;
 }
 
-#menu #item a:hover{
+.menu .desplegable {
+    display: none;
+    margin: 0 0 0 0;
+}
+
+.menu .desplegable a {
+    padding: 15px 15px;
+    margin: 0 0 0 -150px;
+}
+
+.menu .item a:hover {
     background: red;
-    transition: 0.5s;
     color: whitesmoke;
+    transition: 0.5s;
     text-transform: uppercase;
 }
 
-#menu #desplegable{
-    display: none;
-    margin: 0 0 0 0px;
-}
-
-#menu #desplegable a{
-    width: 120px;
-    padding: 15px 15px;
-    display: block;
-    font-size: 20px;
-    text-align: center;
-    text-decoration: none;
-}
-
-#menu #item:hover #desplegable{
+.menu .item:hover .desplegable {
     display: block;
 }
 
-#logo img{
+.container .logo {
+    position: absolute;
     width: 80px;
-    height: 80px;
-    margin: 5px 50px;
-    display: block;
+    margin: 5px 50px !important;
 }
 
-#fondo img{
-    position: fixed;
+.container .logo img {
+    width: 100% !important;
+}
+
+.imagen img{
+    position: absolute;
     max-width: 100%;
-    width: 100%;
-    height: 88%;
-    z-index: -1;
+    width: 25%;
+    height: 100%;
+    top: 12%;
 }
