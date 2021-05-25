@@ -6,21 +6,24 @@ USE Gimnasio; # Usar la base de datos
 DROP DATABASE Gimnasio;
 
 # Creacion de todas las tablas de la base de datos
-# Tabla CLIENTES
-CREATE TABLE CLIENTES (
-	idClien INT AUTO_INCREMENT PRIMARY KEY,
-	nombre VARCHAR(20) not null,
-	apellidoPat VARCHAR(20) not null,
-	apellidoMat VARCHAR(20) not null,
-	apodo VARCHAR(20) not null
-);
-
 # Tabla MEMBRESIA
 CREATE TABLE MEMBRESIA (
 	idMem INT AUTO_INCREMENT PRIMARY KEY,
-	nombreMem VARCHAR(20) not null,
-	duracion INT not null,
+	nombreMem VARCHAR(50) not null,
+	duracion VARCHAR (15) not null, # De INT a VARCHAR
 	precioMem FLOAT not null
+);
+
+# Tabla CLIENTES
+CREATE TABLE CLIENTES (
+	idClien INT AUTO_INCREMENT PRIMARY KEY,
+    idMem INT not null,
+	nombre VARCHAR(20) not null,
+	apellidoPat VARCHAR(20) not null,
+	apellidoMat VARCHAR(20) not null,
+	apodo VARCHAR(20) not null,
+    duracion INT not null,
+    FOREIGN KEY (idMem) REFERENCES MEMBRESIA (idMem)
 );
 
 # Tabla PERMANENCIA
@@ -33,21 +36,20 @@ CREATE TABLE PERMANENCIA (
 CREATE TABLE PERMANENCIA_DETALLADA (
 	idPerm INT not null,
 	idClien INT not null,
-	idMem INT not null,
 	fecha DATE not null,
 	horaEntrada TIME not null,
 	horaSalida TIME not null,
     FOREIGN KEY (idPerm) REFERENCES PERMANENCIA (idPerm),
-	FOREIGN KEY (idClien) REFERENCES CLIENTES (idClien),
-	FOREIGN KEY (idMem) REFERENCES MEMBRESIA (idMem)
+	FOREIGN KEY (idClien) REFERENCES CLIENTES (idClien)
 );
 
 # Tabla PRODUCTOS
 CREATE TABLE PRODUCTOS (
 	idProd INT AUTO_INCREMENT PRIMARY KEY,
-	nombreProd VARCHAR(20) not null,
+	nombreProd VARCHAR(50) not null,
 	stock INT not null,
-	precioProd FLOAT not null
+	precioProd FLOAT not null,
+    estado_venta INT CHECK(estado_venta = 0 or estado_venta = 1)
 );
 
 # Tabla BEBIDAS
@@ -86,7 +88,7 @@ CREATE TABLE COMPRA (
 CREATE TABLE DETALLES_COMPRAS (
 	idCom INT not null,
 	idProd INT not null,
-	nombreProd VARCHAR(20) not null,
+	nombreProd VARCHAR(50) not null,
     precioProd FLOAT not null,
 	cantidadCom INT not null,
 	subTotalCom FLOAT not null,
@@ -97,7 +99,7 @@ CREATE TABLE DETALLES_COMPRAS (
 # Tabla PROVEEDOR
 CREATE TABLE PROVEEDOR (
 	idProv INT AUTO_INCREMENT PRIMARY KEY,
-	nombreProv VARCHAR(20) not null,
+	nombreProv VARCHAR(50) not null,
 	telefono VARCHAR(10) not null
 );
 
