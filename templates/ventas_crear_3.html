@@ -4,11 +4,12 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Membresias</title>
+	<title>Nueva Venta</title>
 	<style>
 		@import "../static/css/estilo_base.css";
+		@import "../static/css/estilo_ventas.css";
 		@import "../static/css/estilo_menu.css";
-		@import "../static/css/estilo_membresia.css";
+		@import "../static/css/estilo_formulario.css";
 	</style>
 	<link rel="icon" href="../static/img/icon_bf.ico">
 </head>
@@ -58,34 +59,40 @@
 			</div>
 		</div>
 	</header>
-	<div class="section">
-		<!--Opcion 1-->
-		<div class="box">
-			<img src="../static/img/membresia_1.jpg">
-			<div class="hover">
-				<a href="#"><img src="../static/img/membresia_1_hover.jpg">
-				<div class="hover_int"><h1>BASE</h1></div></a>
-			</div>
+	<div id="fondo_izq"><a herf="#"><img src="../static/img/logo_bf_1.png"></a></div>	
+	<div id="fondo_der"><a herf="#"><img src="../static/img/logo_bf_1.png"></a></div>	
+	<section class="form-register">
+		<h1>Registro de Ventas</h1>
+		<input class="controls-a" type="text" name="idv" id="idv" placeholder="ID de la Venta">
+		<input class="controls-b" type="text" name="idp" id="idp" placeholder="ID del Producto">
+		<input class="controls" type="text" name="idc" id="idc" placeholder="ID del cliente">
+		<div class="box_set">
+			<!-- Seleccion -->
+		<div class="box_1">
+			<select>
+				<option selected disabled>Tipo de membresia</option>
+				<option value="opcion1">Membresia Base</option>
+				<option value="opcion2">Membresia Intermedia</option>
+				<option value="opcion3">Membresia Completa</option>
+			</select>
 		</div>
-		<!--Opcion 2-->
-		<div class="box">
-			<img src="../static/img/membresia_2.jpg">
-			<div class="hover">
-				<a href="#"><img src="../static/img/membresia_2_hover.jpg">
-				<div class="hover_int"><h1>INTERMEDIA</h1></div></a>
-			</div>
+		<!-- Seleccion -->
+		<div class="box_2">
+			<select>
+				<option selected disabled>Duracion</option>
+				<option value="opcion1">1 Semana</option>
+				<option value="opcion2">2 Semanas</option>
+				<option value="opcion3">3 Semanas</option>
+				<option value="opcion4">1 Mes</option>
+			</select>
 		</div>
-		<!--Opcion 3-->
-		<div class="box">
-			<img src="../static/img/membresia_3.jpg">
-			<div class="hover">
-				<a href="#"><img src="../static/img/membresia_3_hover.jpg">
-				<div class="hover_int"><h1>COMPLETA</h1></div></a>
-			</div>
 		</div>
-	</div>
-	<div class="renovar">
-		<a class="enlace" href="clientes_buscar.html">Renovar o Actualizar Membresia</a>
-	</div>
+		<input class="controls" type="text" name="precio" id="precio" placeholder="Precio">
+		<input class="controls-a" type="text" name="fecha" id="fecha" placeholder="Fecha">
+		<input class="controls-b" type="text" name="hora" id="hora" placeholder="Hora">
+		<input class="boton1" type="submit" value="Registrar">
+		<input class="boton2" type="submit" value="Cancelar">
+	</section>
+
 </body>
 </html>
