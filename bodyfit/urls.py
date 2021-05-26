@@ -24,6 +24,24 @@ urlpatterns = [
     # Rutas para el CRUD del cliente
     path('clientes_listar/', ClientesList.as_view(), name='clientes_listar'),
     path('clientes_crear/', ClientesCreate.as_view(), name='clientes_crear'),
+    path('clientes_buscar/<int:pk>', ClientesFind.as_view(), name='clientes_buscar'),
     path('clientes_editar/<int:pk>', ClientesUpdate.as_view(), name='clientes_editar'),
     path('clientes_eliminar/<int:pk>', ClientesDelete.as_view(), name='clientes_eliminar'),
+    # Rutas para el CRUD de la membresia
+    path('membresia_listar/', MembresiaList.as_view(), name='membresia_listar'),
+    path('membresia_crear/', MembresiaCreate.as_view(), name='membresia_crear'),
+    path('membresia_editar/<int:pk>', MembresiaUpdate.as_view(), name='membresia_editar'),
+    path('membresia_eliminar/<int:pk>', MembresiaDelete.as_view(), name='membresia_eliminar'),
+    # Rutas para el CRUD del proveedor
+    path('proveedor_listar/', ProveedorList.as_view(), name='proveedor_listar'),
+    path('proveedor_crear/', ProveedorCreate.as_view(), name='proveedor_crear'),
+    path('proveedor_editar/<int:pk>', ProveedorUpdate.as_view(), name='proveedor_editar'),
+    path('proveedor_eliminar/<int:pk>', ProveedorDelete.as_view(), name='proveedor_eliminar'),
+    # Rutas para el CRUD del producto
+    path('productos_listar/', ProductosList.as_view(), name='productos_listar'),
+    path('productos_crear/', ProductosCreate.as_view(), name='productos_crear'),
+    path('productos_editar/<int:pk>', ProductosUpdate.as_view(), name='productos_editar'),
+    path('productos_eliminar/<int:pk>', ProductosDelete.as_view(), name='productos_eliminar'),
+    # Ruta no encontrado
+    path('not_found/', not_found, name='not_found'),
 ]

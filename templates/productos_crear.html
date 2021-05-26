@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Crear producto</title>
+</head>
+<body>
+	<h1>Crear producto</h1>
+	<!-- El metodo post se utiliza para enviar la informacion del formulario
+			de manera oculta -->
+	<form method="post">
+		<!-- Se necesita de csrf_token cuando se usa el metodo post -->
+		{% csrf_token %}
+		<!-- La vista envia el formulario ya empacado en la variable form -->
+		{{ form }}
+		<!-- Al presionar el boton se guarda lo rellenado y se envia a la vista -->
+		<button type="submit">CREAR</button>
+	</form>
+</body>
+</html>
