@@ -1,0 +1,16 @@
+.mensaje h1{
+    position: absolute;
+    margin: 20% 30%;
+    color: whitesmoke;
+    font-family: "consolas";
+    font-size: 100px;
+}
+
+.mensaje h2{
+    position: absolute;
+    margin: 30% 25%;
+    color: whitesmoke;
+    font-family: "consolas";
+    font-size: 30px;
+}
+

@@ -1,48 +1,78 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<meta charset="UTF-8">
-		<title>Eliminar</title>
-		<style>
-			@import "../static/css/estilo_barra.css";
-			@import "../static/css/estilo_eliminar.css";
-		</style>
-	</head>
-	<body>
-		<div id="logo"><a href="#"><img src="../static/img/logo_bf_1.png"></a></div>
-		<nav>
-			<div id="menu">
-				<ul>
-					<li id="item"><a href="{% url 'index' %}">Inicio</a></li>
-					<li id="item"><a href="#">Clientes</a>
-						<ul id="desplegable">
-							<li><a href="{% url 'clientes_crear' %}">Agregar</a></li>
-							<li><a href="{% url 'clientes_buscar' 1 %}">Editar</a></li>
-							<li><a href="{% url 'clientes_buscar' 2 %}">Eliminar</a></li>
-							<li><a href="{% url 'clientes_listar' %}">Lista</a></li>
-						</ul>
-					</li>
-					<li id="item"><a href="#">Membresias</a></li>
-					<li id="item"><a href="#">Inventario</a></li>
-					<li id="item"><a href="#">Productos</a></li>
-					<li id="item"><a href="#">Proveedor</a></li>
-					<li id="item"><a href="#">Ventas</a></li>
-				</ul>
-		</nav>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Eliminar Cliente</title>
+	<style>
+		@import "../static/css/estilo_base.css";
+		@import "../static/css/estilo_eliminar.css";
+		@import "../static/css/estilo_menu.css";
+	</style>
+	<link rel="icon" href="../static/img/icon_bf.ico">
 </head>
 <body>
-	<!-- El metodo post se utiliza para enviar la informacion del formulario
-			de manera oculta -->
-	<section id="delete">
-		<form method="post">
+	<header>
+		<div class="bar"></div>
+		<div class="container">
+			<div class="logo"><a href="#"><img src="../static/img/logo_bf_1.png"></a></div>
+			<div class="menu">
+				<ul>
+					<li class="item"><a class="none" href="#">#</a></li>
+					<li class="item"><a href="index.html">Inicio</a></li>
+					<li class="item"><a href="#">Clientes</a>
+						<ul class="desplegable">
+							<li><a href="clientes_crear.html">Agregar</a></li>
+							<li><a href="clientes_buscar.html">Editar</a></li>
+							<li><a href="clientes_buscar.html">Eliminar</a></li>
+							<li><a href="clientes_listar.html">Lista</a></li>
+						</ul>
+					</li>
+					<li class="item"><a href="membresias.html">Membresias</a></li>
+					<li class="item"><a href="inventario.html">Inventario</a></li>
+					<li class="item"><a href="#">Productos</a>
+						<ul class="desplegable">
+							<li><a href="producto_crear.html">Agregar</a></li>
+							<li><a href="producto_buscar.html">Editar</a></li>
+							<li><a href="producto_buscar.html">Eliminar</a></li>
+						</ul>
+					</li>
+					<li class="item"><a href="#">Proveedor</a>
+						<ul class="desplegable">
+							<li><a href="proveedor_crear.html">Agregar</a></li>
+							<li><a href="proveedor_buscar.html">Editar</a></li>
+							<li><a href="proveedor_buscar.html">Eliminar</a></li>
+							<li><a href="proveedor_listar.html">Lista</a></li>
+						</ul>
+					</li>
+					<li class="item"><a href="#">Ventas</a>
+						<ul class="desplegable">
+							<li><a href="ventas_crear.html">Nueva</a></li>
+							<li><a href="ventas_corte.html">Corte</a></li>
+						</ul>
+					</li>
+					<li class="item"><a class="none" href="#">#</a></li>
+					<li class="item"><a class="user" href="iniciar_sesion.html">Iniciar Sesion</a></li>
+				</ul>
+			</div>
+		</div>
+	</header>
+		<!-- El metodo post se utiliza para enviar la informacion del formulario
+		de manera oculta -->
+	<form method="post"></form>
+		<div class="fondo_izq"><a herf="#"><img src="../static/img/wallpaper_5.png"></a></div>	
+		<div class="fondo_der"><a herf="#"><img src="../static/img/wallpaper_6.png"></a></div>	
 			<!-- Se necesita de csrf_token cuando se usa el metodo post -->
 			{% csrf_token %}
 			<!-- La variable object la envia la vista -->
+		<section class="delete">
 			<h1>Desea eliminar al cliente?</h1>
-			<p>{{ object.nombre }} "{{ object.apodo }}" {{ object.apellidopat }}</p>
-            <input class="boton1" type="submit" value="Confirmar">
-		</form>
-			<a href="{% url 'index' %}"><input class="boton2" type="submit" value="Cancelar"></a>
-	</section>
+
+			<input class="controls" type="text" name="eliminar" id="eliminar" placeholder="{{ object.nombre }}">
+           	<input class="boton1" type="submit" value="Confirmar">
+			<input class="boton2" type="submit" value="Cancelar">
+		</section>
+	</form>
 </body>
 </html>

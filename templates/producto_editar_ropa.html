@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Editar Producto</title>
+	<style>
+		@import "../static/css/estilo_suministro_productos.css";
+		@import "../static/css/estilo_base.css";
+		@import "../static/css/estilo_menu.css";
+	</style>
+	<link rel="icon" href="../static/img/icon_bf.ico">
+</head>
+<body>
+	<header>
+		<div class="bar"></div>
+		<div class="container">
+			<div class="logo"><a href="#"><img src="../static/img/logo_bf_1.png"></a></div>
+			<div class="menu">
+				<ul>
+					<li class="item"><a class="none" href="#">#</a></li>
+					<li class="item"><a href="index.html">Inicio</a></li>
+					<li class="item"><a href="#">Clientes</a>
+						<ul class="desplegable">
+							<li><a href="clientes_crear.html">Agregar</a></li>
+							<li><a href="clientes_buscar.html">Editar</a></li>
+							<li><a href="clientes_buscar.html">Eliminar</a></li>
+							<li><a href="clientes_listar.html">Lista</a></li>
+						</ul>
+					</li>
+					<li class="item"><a href="membresias.html">Membresias</a></li>
+					<li class="item"><a href="inventario.html">Inventario</a></li>
+					<li class="item"><a href="#">Productos</a>
+						<ul class="desplegable">
+							<li><a href="producto_crear.html">Agregar</a></li>
+							<li><a href="producto_buscar.html">Editar</a></li>
+							<li><a href="producto_buscar.html">Eliminar</a></li>
+						</ul>
+					</li>
+					<li class="item"><a href="#">Proveedor</a>
+						<ul class="desplegable">
+							<li><a href="proveedor_crear.html">Agregar</a></li>
+							<li><a href="proveedor_buscar.html">Editar</a></li>
+							<li><a href="proveedor_buscar.html">Eliminar</a></li>
+							<li><a href="proveedor_listar.html">Lista</a></li>
+						</ul>
+					</li>
+					<li class="item"><a href="#">Ventas</a>
+						<ul class="desplegable">
+							<li><a href="ventas_crear.html">Nueva</a></li>
+							<li><a href="ventas_corte.html">Corte</a></li>
+						</ul>
+					</li>
+					<li class="item"><a class="none" href="#">#</a></li>
+					<li class="item"><a class="user" href="iniciar_sesion.html">Iniciar Sesion</a></li>
+				</ul>
+			</div>
+		</div>
+	</header>
+	<div class="ropa"><img src="../static/img/ropa.png" alt=""></div>	
+	<section class="form-register">
+		<h1>Formulario de Registro</h1>
+        <input class="controls" type="text" name="idprod" id="idprod" placeholder="Ingrese el ID del producto">
+		<input class="controls" type="text" name="nombres" id="nombres" placeholder="Ingrese el Nombre">
+		<input class="controls-a" type="text" name="talla" id="talla" placeholder="Talla">
+        <input class="controls-b" type="text" name="precio" id="precio" placeholder="Precio del producto">
+
+        <h2>Estado de venta</h2>
+        <div class="radio">
+            <div class="option">
+                <input class="seleccion" name="estado" type="radio" id="select1">
+                <label for="select1">En venta</label>
+            </div>
+            <div class="option">
+                <input class="seleccion" name="estado" type="radio" id="select2">
+                <label for="select2">En inventario</label>
+            </div>
+        </div>
+		<input class="boton" type="submit" value="Confirmar">
+		<input class="boton" type="submit" value="Cancelar">
+	</section>
+</body>
+</html>

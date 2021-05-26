@@ -1,20 +1,20 @@
-#form-register{
+.form-register{
+    position: absolute;
     width: 500px;
-    background: none;
+    background: none;    
     padding: 20px;
-    margin: auto;
-    margin-top: 80px;
+    margin: 17% 33%;
     border-radius: 4px;
-    font-family: Calibri;
+    font-family: "bahnschrift";
     color: whitesmoke;
     box-shadow: 7px 13px 35px rgb(46, 46, 46);
 }
-
-#form-register h1{
-    font-size: 26px;
-    color: whitesmoke;
+ 
+.form-register h1{
+    font-size: 36px;
     margin-bottom: 20px;
     text-align: center;
+    font-family: "amazon";
 }
 
 .controls{
@@ -24,22 +24,45 @@
     border-radius: 4px;
     margin-bottom: 16px;
     border: 1px solid rgb(116, 0, 0);
-    font-family: Calibri;
+    font-family: "bahnschrift";
     color: whitesmoke;
     font-size: 18px;
 }
 
-#form-register .boton{
+.form-register .boton{
     width: 25%;
-    background: rgb(116, 0, 0);
-    border: none;
+    outline: none;
+    background: none;
+    border-radius: 5px;
+    border: 2px solid rgb(116, 0, 0);
     padding: 12px;
     color: whitesmoke;
     margin: 10px 0 0 20px;
-    font-family: "Calibri";
+    cursor: pointer;
+    transition: 0.5s;
+    font-family: "bahnschrift";
     font-size: 20px;
 }
 
-#form-register .boton:hover{
-    border: whitesmoke;
+.boton:hover{
+    content: "";
+    border-radius: 5px;
+    background: rgb(116, 0, 0);
+    text-transform: uppercase;
+}
+
+.fondo_izq img{
+    position: fixed;
+    top: 12%;
+    margin-left: -10%;
+    width: 42%;
+    height: 88%;
+}
+
+.fondo_der img{
+    position: fixed;
+    top: 12%;
+    margin-left: 56%;
+    width: 44%;
+    height: 88%;
 }
