@@ -9,34 +9,34 @@
     box-sizing: border-box;
 }
 
-body {background-color: black;}
-
 header {
     position: fixed !important;
+    top: 0 !important;
     z-index: 100;
     width: 100%;
-    margin: 0 0 !important;
+    margin: 0 !important;
     display: flex;
     font-family: "amazon";
-    font-size: 21px;
+    font-size: 20px;
     text-align: center;
 }
 
-.container .menu ul {
+.container .menu ul {    
     list-style: none;
-    margin: 0 0 0 0;
+    margin: 0;
     padding: 0;
-}
-
-.menu .item {
-    width: 10%;
-    float: left;
 }
 
 .menu {
     z-index: 100;
     position: absolute;
+    top: 0 !important;
     width: 100%;
+}
+
+.menu .item {
+    width: 10%;
+    float: left;
 }
 
 .menu .item a {
