@@ -1,3 +1,5 @@
+{% extends 'index.html' %}
+{% block head %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,63 +14,23 @@
 	</style>
 	<link rel="icon" href="../static/img/icon_bf.ico">
 </head>
-<body>
-	<header>
-		<div class="bar"></div>
-		<div class="container">
-			<div class="logo"><a href="#"><img src="../static/img/logo_bf_1.png"></a></div>
-			<div class="menu">
-				<ul>
-					<li class="item"><a class="none" href="#">#</a></li>
-					<li class="item"><a href="index.html">Inicio</a></li>
-					<li class="item"><a href="#">Clientes</a>
-						<ul class="desplegable">
-							<li><a href="clientes_crear.html">Agregar</a></li>
-							<li><a href="clientes_buscar.html">Editar</a></li>
-							<li><a href="clientes_buscar.html">Eliminar</a></li>
-							<li><a href="clientes_listar.html">Lista</a></li>
-						</ul>
-					</li>
-					<li class="item"><a href="membresias.html">Membresias</a></li>
-					<li class="item"><a href="inventario.html">Inventario</a></li>
-					<li class="item"><a href="#">Productos</a>
-						<ul class="desplegable">
-							<li><a href="producto_crear.html">Agregar</a></li>
-							<li><a href="producto_buscar.html">Editar</a></li>
-							<li><a href="producto_buscar.html">Eliminar</a></li>
-						</ul>
-					</li>
-					<li class="item"><a href="#">Proveedor</a>
-						<ul class="desplegable">
-							<li><a href="proveedor_crear.html">Agregar</a></li>
-							<li><a href="proveedor_buscar.html">Editar</a></li>
-							<li><a href="proveedor_buscar.html">Eliminar</a></li>
-							<li><a href="proveedor_listar.html">Lista</a></li>
-						</ul>
-					</li>
-					<li class="item"><a href="#">Ventas</a>
-						<ul class="desplegable">
-							<li><a href="ventas_crear.html">Nueva</a></li>
-							<li><a href="ventas_corte.html">Corte</a></li>
-						</ul>
-					</li>
-					<li class="item"><a class="none" href="#">#</a></li>
-					<li class="item"><a class="user" href="iniciar_sesion.html">Iniciar Sesion</a></li>
-				</ul>
-			</div>
-		</div>
-	</header>
+{% endblock head %}
+{% block body %}
 	<div class="fondo_izq"><a herf="#"><img src="../static/img/wallpaper_5.png"></a></div>	
 	<div class="fondo_der"><a herf="#"><img src="../static/img/wallpaper_6.png"></a></div>	
 	<section class="form-register">
-		<h1>Edicion del Cliente</h1>
-		<input class="controls" type="text" name="id" id="id" placeholder="ID">
-		<input class="controls" type="text" name="nombres" id="nombres" placeholder="Ingrese el Nombre">
-		<input class="controls" type="text" name="paterno" id="paterno" placeholder="Ingrese el Apellido Paterno">
-		<input class="controls" type="text" name="materno" id="materno" placeholder="Ingrese el Apellido Materno">
-		<input class="controls" type="text" name="apodo" id="apodo" placeholder="Ingrese el Apodo">
-		<input class="boton" type="submit" value="Confirmar">
-		<input class="boton" type="submit" value="Cancelar">
+		<form method="post">
+			{% csrf_token %}
+			<h1>Edicion del Cliente</h1>
+			<input class="controls" type="" name="" value="ID Cliente: {{ cliente.idclien }}">
+			<input class="controls" type="text" name="nombre" id="nombre" placeholder="{{ cliente.nombre }}" value='{{ cliente.nombre }}'>
+			<input class="controls" type="text" name="apellidopat" id="apellidopat" placeholder="{{ cliente.apellidopat }}" value='{{ cliente.apellidopat }}'>
+			<input class="controls" type="text" name="apellidomat" id="apellidomat" placeholder="{{ object.apellidomat }}" value='{{ cliente.apellidomat }}'>
+			<input class="controls" type="text" name="apodo" id="apodo" placeholder="{{ cliente.apodo }}" value='{{ cliente.apodo }}'>
+			<input type="hidden" name="duracion" id="id_duracion" value="{{ cliente.duracion }}">
+			<input type="hidden" name="idmem" value="2">
+			<input class="boton" type="submit" value="Confirmar">
+			<input class="boton" type="submit" value="Cancelar">
+		</form>
 	</section>
-</body>
-</html>
+{% endblock body %}

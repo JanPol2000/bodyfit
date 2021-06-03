@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'index.html' %}	
+{% block head %}
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,70 +13,26 @@
 	</style>
 	<link rel="icon" href="../static/img/icon_bf.ico">
 </head>
-<body>
-	<header>
-		<div class="bar"></div>
-		<div class="container">
-			<div class="logo"><a href="#"><img src="../static/img/logo_bf_1.png"></a></div>
-			<div class="menu">
-				<ul>
-					<li class="item"><a class="none" href="#">#</a></li>
-					<li class="item"><a href="index.html">Inicio</a></li>
-					<li class="item"><a href="#">Clientes</a>
-						<ul class="desplegable">
-							<li><a href="clientes_crear.html">Agregar</a></li>
-							<li><a href="clientes_buscar.html">Editar</a></li>
-							<li><a href="clientes_buscar.html">Eliminar</a></li>
-							<li><a href="clientes_listar.html">Lista</a></li>
-						</ul>
-					</li>
-					<li class="item"><a href="membresias.html">Membresias</a></li>
-					<li class="item"><a href="inventario.html">Inventario</a></li>
-					<li class="item"><a href="#">Productos</a>
-						<ul class="desplegable">
-							<li><a href="producto_crear.html">Agregar</a></li>
-							<li><a href="producto_buscar.html">Editar</a></li>
-							<li><a href="producto_buscar.html">Eliminar</a></li>
-						</ul>
-					</li>
-					<li class="item"><a href="#">Proveedor</a>
-						<ul class="desplegable">
-							<li><a href="proveedor_crear.html">Agregar</a></li>
-							<li><a href="proveedor_buscar.html">Editar</a></li>
-							<li><a href="proveedor_buscar.html">Eliminar</a></li>
-							<li><a href="proveedor_listar.html">Lista</a></li>
-						</ul>
-					</li>
-					<li class="item"><a href="#">Ventas</a>
-						<ul class="desplegable">
-							<li><a href="ventas_crear.html">Nueva</a></li>
-							<li><a href="ventas_corte.html">Corte</a></li>
-						</ul>
-					</li>
-					<li class="item"><a class="none" href="#">#</a></li>
-					<li class="item"><a class="user" href="iniciar_sesion.html">Iniciar Sesion</a></li>
-				</ul>
-			</div>
-		</div>
-	</header>
+{% endblock head %}
+{% block body %}
 	<div class="inv_izq"><a herf="#"><img src="../static/img/suministro_2.png"></a></div>	
 	<div class="inv_der"><a herf="#"><img src="../static/img/suministro_1.png"></a></div>	
 	<!--Opciones de Inventario-->
 	<div class="inventarios">
 		<div class="opciones">
-			<a href="inventario.html">Inventario General</a>
+			<a href="{% url 'inventario' %}">Inventario General</a>
 		</div>
 		<div class="opciones">
-			<a href="inventario_bebidas.html">Inventario Bebidas</a>
+			<a href="{% url 'inventario_bebidas' %}">Inventario Bebidas</a>
 		</div>	
 		<div class="opciones">	
-			<a href="inventario_suplementos.html">Inventario Suplementos</a>
+			<a href="{% url 'inventario_suplementos' %}">Inventario Suplementos</a>
 		</div>
 		<div class="opciones">
-			<a href="inventario_ropa.html">Inventario Ropa</a></li>
+			<a href="{% url 'inventario_ropa' %}">Inventario Ropa</a></li>
 		</div>
 		<div class="opciones">
-			<a href="inventario_accesorios.html">Inventario Accesorios</a>
+			<a href="{% url 'inventario_accesorios' %}">Inventario Accesorios</a>
 		</div>
 	</div>
 	<div class="main-container">
@@ -86,25 +42,26 @@
 				<tr>
 					<th>ID</th>
 					<th>Nombre</th>
-					<th>Precio</th>
 					<th>Cantidad</th>
+					<th>Precio</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>{{ producto.idprod }}</td>
-					<td>{{ producto.nombre }}</td>
-					<td>{{ producto.precio }}</td>
-					<td>{{ producto.cant }}</td>
-				</tr>
+				{% for producto in inventario_ropa %}
+					<tr>
+						<td>{{ producto.0 }}</td>
+						<td>{{ producto.1 }}</td>
+						<td>{{ producto.2 }}</td>
+						<td>{{ producto.3 }}</td>
+					</tr>
+				{% endfor %}
 		</tbody>
 		<tfoot>
 			<tr>
 				<th colspan="3">Cantidad de Productos</th>
-				<th>AMOUNT</th>
+				<th>{{ total }}</th>
 			</tr>
 		</tfoot>
-	</table>
-</div>	
-</body>
-</html>
+		</table>
+	</div>	
+{% endblock body %}

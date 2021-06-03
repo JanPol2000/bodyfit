@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'index.html' %}	
+	{% block head %}
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,82 +12,44 @@
 	</style>
 	<link rel="icon" href="../static/img/icon_bf.ico">
 </head>
-<body>
-	<header>
-		<div class="bar"></div>
-		<div class="container">
-			<div class="logo"><a href="#"><img src="../static/img/logo_bf_1.png"></a></div>
-			<div class="menu">
-				<ul>
-					<li class="item"><a class="none" href="#">#</a></li>
-					<li class="item"><a href="index.html">Inicio</a></li>
-					<li class="item"><a href="#">Clientes</a>
-						<ul class="desplegable">
-							<li><a href="clientes_crear.html">Agregar</a></li>
-							<li><a href="clientes_buscar.html">Editar</a></li>
-							<li><a href="clientes_buscar.html">Eliminar</a></li>
-							<li><a href="clientes_listar.html">Lista</a></li>
-						</ul>
-					</li>
-					<li class="item"><a href="membresias.html">Membresias</a></li>
-					<li class="item"><a href="inventario.html">Inventario</a></li>
-					<li class="item"><a href="#">Productos</a>
-						<ul class="desplegable">
-							<li><a href="producto_crear.html">Agregar</a></li>
-							<li><a href="producto_buscar.html">Editar</a></li>
-							<li><a href="producto_buscar.html">Eliminar</a></li>
-						</ul>
-					</li>
-					<li class="item"><a href="#">Proveedor</a>
-						<ul class="desplegable">
-							<li><a href="proveedor_crear.html">Agregar</a></li>
-							<li><a href="proveedor_buscar.html">Editar</a></li>
-							<li><a href="proveedor_buscar.html">Eliminar</a></li>
-							<li><a href="proveedor_listar.html">Lista</a></li>
-						</ul>
-					</li>
-					<li class="item"><a href="#">Ventas</a>
-						<ul class="desplegable">
-							<li><a href="ventas_crear.html">Nueva</a></li>
-							<li><a href="ventas_corte.html">Corte</a></li>
-						</ul>
-					</li>
-					<li class="item"><a class="none" href="#">#</a></li>
-					<li class="item"><a class="user" href="iniciar_sesion.html">Iniciar Sesion</a></li>
-				</ul>
-			</div>
-		</div>
-	</header>
+{% endblock head %}
+{% block body %}
 	<div class="fondo_izq"><a herf="#"><img src="../static/img/wallpaper_5.png"></a></div>	
-	<div class="fondo_der"><a herf="#"><img src="../static/img/wallpaper_6.png"></a></div>		
+	<div class="fondo_der"><a herf="#"><img src="../static/img/wallpaper_6.png"></a></div>
+	
 	<section class="form-register">
+	<form method="post">
+		{% csrf_token %}
 		<h1>Formulario de Actualizacion</h1>
-		<input class="controls" type="text" name="id" id="id" placeholder="Ingrese el ID">
-		<input class="controls" type="text" name="nombres" id="nombres" placeholder="Ingrese el Nombre">
-		<input class="controls" type="text" name="apodo" id="apodo" placeholder="Ingrese el Apodo">
+		<input class="controls" type="hidden" name="idclien" id="idclien" value="{{ idclien }}">
+		<input class="controls" type="" name="" value="ID Cliente: {{ idclien }}">
+		<input class="controls" type="" name="" value="Nombre: {{ nombre }}">
+		<input class="controls" type="" name="" value="Apodo: {{ apodo }}">
 		<div class="box_set">
 			<!-- Seleccion -->
+			<input class="controls" type="" name="" value="Membresia Actual: {{ membresia }}">
 		<div class="box_1">
-			<select>
+			<select name="membresia">
 				<option selected disabled>Tipo de membresia</option>
-				<option value="opcion1">Membresia Base</option>
-				<option value="opcion2">Membresia Intermedia</option>
-				<option value="opcion3">Membresia Completa</option>
+				<option value="2">Membresia Base</option>
+				<option value="3">Membresia Intermedia</option>
+				<option value="4">Membresia Completa</option>
 			</select>
 		</div>
 		<!-- Seleccion -->
+		<input class="controls" type="" name="" value="Duración Actual: {{ duracion }}">
 		<div class="box_2">
-			<select>
+			<select name="duracion">
 				<option selected disabled>Duracion</option>
-				<option value="opcion1">1 Semana</option>
-				<option value="opcion2">2 Semanas</option>
-				<option value="opcion3">3 Semanas</option>
-				<option value="opcion4">1 Mes</option>
+				<option value="0.25">1 Semana</option>
+				<option value="0.5">2 Semanas</option>
+				<option value="0.75">3 Semanas</option>
+				<option value="1">1 Mes</option>
 			</select>
 		</div>
 		</div>
-		<input class="boton1" type="submit" value="Confirmar">
-		<input class="boton2" type="submit" value="Cancelar">
+		<input class="boton1" type="submit" value="Confirmar" name="confirmar">
+		<input class="boton2" type="submit" value="Cancelar" name="confirmar">
 	</section>
-</body>
-</html>
+	</form>		
+{% endblock body %}

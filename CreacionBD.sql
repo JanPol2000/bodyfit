@@ -22,8 +22,8 @@ CREATE TABLE CLIENTES (
 	apellidoPat VARCHAR(20) not null,
 	apellidoMat VARCHAR(20) not null,
 	apodo VARCHAR(20) not null,
-    duracion INT not null,
-    FOREIGN KEY (idMem) REFERENCES MEMBRESIA (idMem)
+    duracion FLOAT(3,2) not null,
+    FOREIGN KEY (idMem) REFERENCES MEMBRESIA (idMem) ON DELETE CASCADE
 );
 
 # Tabla PERMANENCIA
@@ -39,8 +39,8 @@ CREATE TABLE PERMANENCIA_DETALLADA (
 	fecha DATE not null,
 	horaEntrada TIME not null,
 	horaSalida TIME not null,
-    FOREIGN KEY (idPerm) REFERENCES PERMANENCIA (idPerm),
-	FOREIGN KEY (idClien) REFERENCES CLIENTES (idClien)
+    FOREIGN KEY (idPerm) REFERENCES PERMANENCIA (idPerm) ON DELETE CASCADE,
+	FOREIGN KEY (idClien) REFERENCES CLIENTES (idClien) ON DELETE CASCADE
 );
 
 # Tabla PRODUCTOS
@@ -56,14 +56,14 @@ CREATE TABLE PRODUCTOS (
 CREATE TABLE BEBIDAS (
 	idProd INT not null,
 	cantidadMililitros INT not null,
-	FOREIGN KEY (idProd) REFERENCES PRODUCTOS (idProd)
+	FOREIGN KEY (idProd) REFERENCES PRODUCTOS (idProd) ON DELETE CASCADE
 );
 
 # Tabla SUPLEMENTOS
 CREATE TABLE SUPLEMENTOS (
 	idProd INT not null,
 	cantidadGramos INT not null,
-	FOREIGN KEY (idProd) REFERENCES PRODUCTOS (idProd)
+	FOREIGN KEY (idProd) REFERENCES PRODUCTOS (idProd) ON DELETE CASCADE
 );
 
 # Tabla ROPA
@@ -71,7 +71,7 @@ CREATE TABLE ROPA (
 	idProd INT not null,
 	tipo VARCHAR(20) not null,
 	talla VARCHAR(20) not null,
-	FOREIGN KEY (idProd) REFERENCES PRODUCTOS (idProd)
+	FOREIGN KEY (idProd) REFERENCES PRODUCTOS (idProd) ON DELETE CASCADE
 );
 
 # Tabla COMPRA
@@ -81,7 +81,7 @@ CREATE TABLE COMPRA (
     fechaCom DATE not null,
     horaCom TIME not null,
 	totalCom FLOAT not null,
-    FOREIGN KEY (idClien) REFERENCES CLIENTES (idClien)
+    FOREIGN KEY (idClien) REFERENCES CLIENTES (idClien) ON DELETE CASCADE
 );
 
 # Tabla DETALLES_COMPRAS
@@ -92,8 +92,8 @@ CREATE TABLE DETALLES_COMPRAS (
     precioProd FLOAT not null,
 	cantidadCom INT not null,
 	subTotalCom FLOAT not null,
-	FOREIGN KEY (idCom) REFERENCES COMPRA (idCom),
-	FOREIGN KEY (idProd) REFERENCES PRODUCTOS (idProd)
+	FOREIGN KEY (idCom) REFERENCES COMPRA (idCom) ON DELETE CASCADE,
+	FOREIGN KEY (idProd) REFERENCES PRODUCTOS (idProd) ON DELETE CASCADE
 );
 
 # Tabla PROVEEDOR
@@ -110,7 +110,7 @@ CREATE TABLE SUMINISTRA (
     fechaSum DATE not null,
     horaSum TIME not null,
     totalSum FLOAT not null,
-	FOREIGN KEY (idProv) REFERENCES PROVEEDOR (idProv)
+	FOREIGN KEY (idProv) REFERENCES PROVEEDOR (idProv) ON DELETE CASCADE
 );
 
 # Tabla SUMINISTRA
@@ -121,6 +121,6 @@ CREATE TABLE DETALLES_SUMINISTRA (
     precioSum FLOAT not null,
 	cantidadSum INT not null,
 	subTotalSum FLOAT not null,
-	FOREIGN KEY (idSum) REFERENCES SUMINISTRA (idSum),
-	FOREIGN KEY (idProd) REFERENCES PRODUCTOS (idProd)
+	FOREIGN KEY (idSum) REFERENCES SUMINISTRA (idSum) ON DELETE CASCADE,
+	FOREIGN KEY (idProd) REFERENCES PRODUCTOS (idProd) ON DELETE CASCADE
 );

@@ -1,25 +1,27 @@
 from django.db import models
 
-class Clientes(models.Model):
-    idclien = models.AutoField(db_column='idClien', primary_key=True)  # Field name made lowercase.
-    nombre = models.CharField(max_length=20)
-    apellidopat = models.CharField(db_column='apellidoPat', max_length=20)  # Field name made lowercase.
-    apellidomat = models.CharField(db_column='apellidoMat', max_length=20)  # Field name made lowercase.
-    apodo = models.CharField(max_length=20)
-
-    class Meta:
-        managed = False
-        db_table = 'clientes'
-
 class Membresia(models.Model):
     idmem = models.AutoField(db_column='idMem', primary_key=True)  # Field name made lowercase.
-    nombremem = models.CharField(db_column='nombreMem', max_length=20)  # Field name made lowercase.
-    duracion = models.IntegerField()
+    nombremem = models.CharField(db_column='nombreMem', max_length=50)  # Field name made lowercase.
+    duracion = models.CharField(max_length=15)
     preciomem = models.FloatField(db_column='precioMem')  # Field name made lowercase.
 
     class Meta:
         managed = False
         db_table = 'membresia'
+
+class Clientes(models.Model):
+    idclien = models.AutoField(db_column='idClien', primary_key=True)  # Field name made lowercase.
+    idmem = models.ForeignKey('Membresia', models.CASCADE, db_column='idMem')  # Field name made lowercase.
+    nombre = models.CharField(max_length=20)
+    apellidopat = models.CharField(db_column='apellidoPat', max_length=20)  # Field name made lowercase.
+    apellidomat = models.CharField(db_column='apellidoMat', max_length=20)  # Field name made lowercase.
+    apodo = models.CharField(max_length=20)
+    duracion = models.FloatField()
+
+    class Meta:
+        managed = False
+        db_table = 'clientes'
 
 class Permanencia(models.Model):
     idperm = models.AutoField(db_column='idPerm', primary_key=True)  # Field name made lowercase.
@@ -32,7 +34,6 @@ class Permanencia(models.Model):
 class PermanenciaDetallada(models.Model):
     idperm = models.ForeignKey(Permanencia, models.CASCADE, db_column='idPerm')  # Field name made lowercase.
     idclien = models.ForeignKey(Clientes, models.CASCADE, db_column='idClien')  # Field name made lowercase.
-    idmem = models.ForeignKey(Membresia, models.CASCADE, db_column='idMem')  # Field name made lowercase.
     fecha = models.DateField()
     horaentrada = models.TimeField(db_column='horaEntrada')  # Field name made lowercase.
     horasalida = models.TimeField(db_column='horaSalida')  # Field name made lowercase.
@@ -43,9 +44,10 @@ class PermanenciaDetallada(models.Model):
 
 class Productos(models.Model):
     idprod = models.AutoField(db_column='idProd', primary_key=True)  # Field name made lowercase.
-    nombreprod = models.CharField(db_column='nombreProd', max_length=20)  # Field name made lowercase.
+    nombreprod = models.CharField(db_column='nombreProd', max_length=50)  # Field name made lowercase.
     stock = models.IntegerField()
     precioprod = models.FloatField(db_column='precioProd')  # Field name made lowercase.
+    estado_venta = models.IntegerField()
 
     class Meta:
         managed = False
@@ -91,7 +93,7 @@ class Compra(models.Model):
 class DetallesCompras(models.Model):
     idcom = models.ForeignKey(Compra, models.CASCADE, db_column='idCom')  # Field name made lowercase.
     idprod = models.ForeignKey('Productos', models.CASCADE, db_column='idProd')  # Field name made lowercase.
-    nombreprod = models.CharField(db_column='nombreProd', max_length=20)  # Field name made lowercase.
+    nombreprod = models.CharField(db_column='nombreProd', max_length=50)  # Field name made lowercase.
     precioprod = models.FloatField(db_column='precioProd')  # Field name made lowercase.
     cantidadcom = models.IntegerField(db_column='cantidadCom')  # Field name made lowercase.
     subtotalcom = models.FloatField(db_column='subTotalCom')  # Field name made lowercase.
@@ -102,7 +104,7 @@ class DetallesCompras(models.Model):
 
 class Proveedor(models.Model):
     idprov = models.AutoField(db_column='idProv', primary_key=True)  # Field name made lowercase.
-    nombreprov = models.CharField(db_column='nombreProv', max_length=20)  # Field name made lowercase.
+    nombreprov = models.CharField(db_column='nombreProv', max_length=50)  # Field name made lowercase.
     telefono = models.CharField(max_length=10)
 
     class Meta:

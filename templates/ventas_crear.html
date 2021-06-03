@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'index.html' %}	
+	{% block head %}
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,90 +12,61 @@
 	</style>
 	<link rel="icon" href="../static/img/icon_bf.ico">
 </head>
-<body>
-	<header>
-		<div class="bar"></div>
-		<div class="container">
-			<div class="logo"><a href="#"><img src="../static/img/logo_bf_1.png"></a></div>
-			<div class="menu">
-				<ul>
-					<li class="item"><a class="none" href="#">#</a></li>
-					<li class="item"><a href="index.html">Inicio</a></li>
-					<li class="item"><a href="#">Clientes</a>
-						<ul class="desplegable">
-							<li><a href="clientes_crear.html">Agregar</a></li>
-							<li><a href="clientes_buscar.html">Editar</a></li>
-							<li><a href="clientes_buscar.html">Eliminar</a></li>
-							<li><a href="clientes_listar.html">Lista</a></li>
-						</ul>
-					</li>
-					<li class="item"><a href="membresias.html">Membresias</a></li>
-					<li class="item"><a href="inventario.html">Inventario</a></li>
-					<li class="item"><a href="#">Productos</a>
-						<ul class="desplegable">
-							<li><a href="producto_crear.html">Agregar</a></li>
-							<li><a href="producto_buscar.html">Editar</a></li>
-							<li><a href="producto_buscar.html">Eliminar</a></li>
-						</ul>
-					</li>
-					<li class="item"><a href="#">Proveedor</a>
-						<ul class="desplegable">
-							<li><a href="proveedor_crear.html">Agregar</a></li>
-							<li><a href="proveedor_buscar.html">Editar</a></li>
-							<li><a href="proveedor_buscar.html">Eliminar</a></li>
-							<li><a href="proveedor_listar.html">Lista</a></li>
-						</ul>
-					</li>
-					<li class="item"><a href="#">Ventas</a>
-						<ul class="desplegable">
-							<li><a href="ventas_crear.html">Nueva</a></li>
-							<li><a href="ventas_corte.html">Corte</a></li>
-						</ul>
-					</li>
-					<li class="item"><a class="none" href="#">#</a></li>
-					<li class="item"><a class="user" href="iniciar_sesion.html">Iniciar Sesion</a></li>
-				</ul>
-			</div>
-		</div>
-	</header>
+{% endblock head %}
+{% block body %}
 	<div id="fondo_izq"><a herf="#"><img src="../static/img/logo_bf_1.png"></a></div>	
 	<div id="fondo_der"><a herf="#"><img src="../static/img/logo_bf_1.png"></a></div>	
 	<section class="form-register">
-		<h1>Registro de Ventas</h1>
-		<input class="controls-a" type="text" name="idv" id="idv" placeholder="ID de la Venta">
-		<input class="controls-b" type="text" name="idp" id="idp" placeholder="ID del Producto">
-		<input class="controls" type="text" name="nombrep" id="nombrep" placeholder="Nombre del Producto">
-		<input class="controls-a" type="text" name="precio" id="precio" placeholder="Precio">
-		<input class="controls-b" type="text" name="cant" id="cant" placeholder="Cantidad">
-		<input class="controls-a" type="text" name="fecha" id="fecha" placeholder="Fecha">
-		<input class="controls-b" type="text" name="hora" id="hora" placeholder="Hora">
-		<input class="boton1" type="submit" value="Registrar">
-		<input class="boton2" type="submit" value="Cancelar">
+		<form method="post">
+			{% csrf_token %}
+			<h1>Registro de Ventas</h1>
+			<p class="controls">ID Venta: {{ idcom }}</p>
+			<input type="hidden" name="idcom" id="idcom" value="{{ idcom }}">
+			<input class="controls-b" type="text" name="idclien" id="idclien" placeholder="ID del Cliente">
+			<input class="controls" type="text" name="idprod" id="idprod" placeholder="ID del Producto">
+			<input class="controls-a" type="text" name="precio" id="precio" placeholder="Precio">
+			<input class="controls-b" type="text" name="cant" id="cant" placeholder="Cantidad">
+			<p class="controls">Fecha: {{ fecha }}</p>
+			<p class="controls">Hora: {{ hora }}</p>
+			<input class="boton1" type="submit" value="Registrar" name="confirmar">
+			<input class="boton2" type="submit" value="Cancelar" name="confirmar">
+			{% if not nueva %}
+			<input type="hidden" value="" name="nueva">
+			{% endif %}
+		</form>
 	</section>
 	<div class="ticket">
 		<h1>Ticket de Venta</h1>	
 		<!--Tabla para el ticlket de la compra-->
 		<table>
-			<tbody>
+			<thead>
 				<tr>
 					<td class="left">Nombre del producto</td>
+					<td >Cantidad</td>
 					<td class="right">Precio</td>
 				</tr>
+			</thead>
+			<tbody>
+				{% for dt_c in dt_compras %}
+				<tr>
+					<td>{{ dt_c.2 }}</td>
+					<td>{{ dt_c.4 }}</td>
+					<td>{{ dt_c.3 }}</td>
+				</tr>
+				{% endfor %}
 			</tbody>
 			<tfoot>
 				<tr>
-					<th class="left">Subtotal</th>
-					<th class="right">Cantidad</th>
-				</tr>
-				<tr>
 					<th class="left">Total</th>
-					<th class="right">Cantidad</th>
+					<th class="right">{{ total }}</th>
 				</tr>
 			</tfoot>	
 		</table>
 		<!--Botones del ticket-->	
-		<input class="boton1" type="submit" value="Confirmar">
-		<input class="boton2" type="submit" value="Remover">
+		<form method="post">
+			{% csrf_token %}
+			<input class="boton1" type="submit" value="Finalizar" name="confirmar">
+			<input class="boton2" type="submit" value="Remover" name="confirmar">
+		</form>
 	</div>
-</body>
-</html>
+{% endblock body %}
