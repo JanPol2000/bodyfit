@@ -8,21 +8,21 @@
 # delimiter ;
 
 # Iniciar compra
-DELIMITER $$ #
+DELIMITER $$ # Inicia una nueva compra
 CREATE PROCEDURE iniciar_compra ()
 BEGIN
 	INSERT INTO compra (idClien, fechaCom, horaCom, totalCom) VALUES (1, curdate(), curtime(), 0); # Creamos una nueva compra, con un total igual a 0
 END$$
 DELIMITER ;
 
-DELIMITER $$ #
+DELIMITER $$ # Actualiza la compra relacionandola con el id del cliente
 CREATE PROCEDURE actualizar_cliente (idcompra INT, idc INT)
 BEGIN
 	UPDATE compra SET idClien = idc WHERE idcom = idcompra;
 END$$
 DELIMITER ;
 
-# Agregar producto
+# Agregar producto a la compra ya iniciada
 DELIMITER $$
 CREATE PROCEDURE agregar_producto_compra (idCompra INT, idProducto INT, cantidad INT)
 BEGIN
@@ -37,7 +37,7 @@ DELIMITER ;
 
 
 
-# Reducir stock
+# Reducir el stock del producto
 DELIMITER $$
 CREATE PROCEDURE reducir_stock (idProducto INT, cantidad INT)
 BEGIN
@@ -69,7 +69,7 @@ BEGIN
 END$$
 DELIMITER ;
 
-# Agregar cliente
+# Agregar un nuevo cliente
 DELIMITER $$ #
 CREATE PROCEDURE agregar_cliente (idC INT, nombreC VARCHAR (20), apellidoP VARCHAR (20), apellidoM VARCHAR (20), apodo VARCHAR (15), duracion FLOAT, idM INT)
 BEGIN
@@ -127,31 +127,8 @@ BEGIN
 END$$
 DELIMITER ;
 
-# Agregar producto
-DELIMITER $$
-CREATE PROCEDURE agregar_producto(idS INT, idP INT, nombreP VARCHAR(50), precioP FLOAT, stockS INT, estado_venta INT)
-BEGIN
-	call agregarProducto(idP, nombreP, precioP, stockS, estado_venta);
-	set @sub = precioP*stockS;
-	insert into detalles_suministra (idSum, idProd, nombreProd, precioSum, cantidadSum, subTotalSum) values (idS, idP, nombreP, precioP, stockS, @sub);
-	set @total = (select sum(subTotalSum) from detalles_suministra where idSum = idS);
-	update suministra set totalSum = @total where idSum = idS;
-END$$
-DELIMITER ;
 
-# Agregar producto 2
-DELIMITER $$
-create procedure agregarProducto (idP INT, nombreP VARCHAR(50), precioP FLOAT, stockS INT, estado_venta INT)
-begin
-	IF NOT EXISTS ( SELECT idProd FROM productos WHERE idProd = idP ) THEN
-		INSERT INTO productos VALUES(idP, nombreP, stockS, precioP, estado_venta);
-	ELSE
-		update productos set stock = stock + stockS where idProd = idP;
-	END IF;
-end$$
-DELIMITER ;
-
-# Listar venta
+# Listar venta con la fecha actual
 DELIMITER $$
 CREATE PROCEDURE  listar_venta()
 BEGIN
@@ -167,7 +144,7 @@ BEGIN
 END$$
 DELIMITER ;
 
-# Modificar membresia
+# Modificar membresia de un cliente
 DELIMITER $$ #
 CREATE PROCEDURE modificar_membresia (idC INT, idM INT, duracion FLOAT)
 BEGIN
@@ -180,30 +157,8 @@ END$$
 DELIMITER ;
 
 ________________
-DELIMITER $$
-CREATE PROCEDURE  listar_cliente(idc INT)
-BEGIN
-	SELECT * FROM clientes where idclien = idc;
-END$$
-DELIMITER $$
-
-DELIMITER $$
-CREATE PROCEDURE iniciarCompra (idc int)
-BEGIN
-	INSERT INTO compra (idClien, fechaCom, horaCom, totalCom) VALUES (idc, curdate(), curtime(), 0); # Creamos una nueva compra, con un total igual a 0
-	select last_insert_id(); # Regresamos el ultimo id registrado
-END$$
-DELIMITER ;
-
-DELIMITER $$
-CREATE PROCEDURE compra_cliente (idcompra int)
-BEGIN
-	select idclien from compra where idcom = idcompra;
-END$$
-DELIMITER ;
-
-
-DELIMITER $$ #
+# Registro de compra de una membresia
+DELIMITER $$  
 CREATE PROCEDURE comprar_membresia(idcompra int, idc int, idm int)
 BEGIN
 	set @duracion = (SELECT duracion from clientes where idclien = idc);
@@ -213,17 +168,15 @@ BEGIN
 END$$
 DELIMITER ;
 
-
-DELIMITER $$ #
+# Eiminar cliente
+DELIMITER $$ 
 CREATE PROCEDURE eliminar_cliente (idc int)
 BEGIN
 	delete from clientes where idclien = idc;
 END$$
 DELIMITER ;
 
-
-Poner borrado en cascada
-
+# Actualiza el proveedor de suministra
 DELIMITER $$
 CREATE PROCEDURE actualizar_proveedor (ids INT, idp INT)
 BEGIN
@@ -231,6 +184,7 @@ BEGIN
 END$$
 DELIMITER ;
 
+# Agrega los productos a detalles suministra
 DELIMITER $$
 CREATE PROCEDURE suministrar_producto(idS INT, idP INT, nombreP VARCHAR(50), precioP FLOAT, stockS INT)
 BEGIN
@@ -241,7 +195,7 @@ BEGIN
 END$$
 DELIMITER ;
 
-# Agregar producto 2
+# Agrega la bebida a productos
 DELIMITER $$
 create procedure agregar_bebida (idP INT, nombreP VARCHAR(50), precioP FLOAT, stockS INT, estado_venta INT, cantmili INT)
 begin
@@ -254,6 +208,7 @@ begin
 end$$
 DELIMITER ;
 
+# Agrega el suplemento a productos
 DELIMITER $$ #
 create procedure agregar_suplemento (idP INT, nombreP VARCHAR(50), precioP FLOAT, stockS INT, estado_venta INT, cantgram INT)
 begin
@@ -266,6 +221,7 @@ begin
 end$$
 DELIMITER ;
 
+# Agrega la ropa a productos
 DELIMITER $$ #
 create procedure agregar_ropa (idP INT, nombreP VARCHAR(50), precioP FLOAT, stockS INT, estado_venta INT, talla VARCHAR(20))
 begin
@@ -278,6 +234,7 @@ begin
 end$$
 DELIMITER ;
 
+# Agrega el accesorio a productos
 DELIMITER $$ #
 create procedure agregar_accesorio (idP INT, nombreP VARCHAR(50), precioP FLOAT, stockS INT, estado_venta INT)
 begin
@@ -289,6 +246,7 @@ begin
 end$$
 DELIMITER ;
 
+# Busca la bebida
 DELIMITER $$
 CREATE PROCEDURE buscar_bebida (idp INT)
 BEGIN
@@ -296,7 +254,7 @@ BEGIN
 END$$
 DELIMITER ;
 
-# Inventario suplemento
+# Busca el suplemento
 DELIMITER $$
 CREATE PROCEDURE buscar_suplemento (idp INT)
 BEGIN
@@ -304,7 +262,7 @@ BEGIN
 END$$
 DELIMITER ;
 
-# Inventario ropa
+# Busca la ropa
 DELIMITER $$
 CREATE PROCEDURE  buscar_ropa (idp INT)
 BEGIN
@@ -320,7 +278,7 @@ BEGIN
 END$$
 DELIMITER ;
 
-
+# Actualiza los datos de la bebida
 DELIMITER $$ 
 CREATE PROCEDURE actualizar_bebida (idp INT, nombreP VARCHAR(50), precioP FLOAT, estado INT, cantmili INT)
 BEGIN
@@ -329,6 +287,7 @@ BEGIN
 END$$
 DELIMITER ;
 
+# Actualiza los datos del suplemento
 DELIMITER $$ 
 CREATE PROCEDURE actualizar_suplemento (idp INT, nombreP VARCHAR(50), precioP FLOAT, estado INT, cantgram INT)
 BEGIN
@@ -337,6 +296,7 @@ BEGIN
 END$$
 DELIMITER ;
 
+# Actualiza los datos de la ropa
 DELIMITER $$
 CREATE PROCEDURE actualizar_ropa (idp INT, nombreP VARCHAR(50), precioP FLOAT, estado INT, tallaP VARCHAR(20))
 BEGIN
@@ -345,6 +305,7 @@ BEGIN
 END$$
 DELIMITER ;
 
+# Actualiza los datos de los accesorios
 DELIMITER $$
 CREATE PROCEDURE actualizar_accesorio (idp INT, nombreP VARCHAR(50), precioP FLOAT, estado INT)
 BEGIN
@@ -352,6 +313,7 @@ BEGIN
 END$$
 DELIMITER ;
 
+# Elimina el producto
 DELIMITER $$
 CREATE PROCEDURE eliminar_producto (idp int)
 BEGIN
@@ -362,6 +324,7 @@ BEGIN
 END$$
 DELIMITER ;
 
+# Agrega un nuevo proveedor
 DELIMITER $$
 CREATE PROCEDURE agregar_proveedor (idp int, nombre VARCHAR(50), tel VARCHAR(12))
 BEGIN
@@ -369,6 +332,7 @@ BEGIN
 END$$
 DELIMITER ;
 
+# Actualiza al proveedor
 DELIMITER $$
 CREATE PROCEDURE actualiza_proveedor (idp int, nombre VARCHAR(50), tel VARCHAR(12))
 BEGIN
@@ -376,6 +340,7 @@ BEGIN
 END$$
 DELIMITER ;
 
+# Elimina al proveedor
 DELIMITER $$
 CREATE PROCEDURE elimina_proveedor (idp int)
 BEGIN
@@ -383,6 +348,7 @@ BEGIN
 END$$
 DELIMITER ;
 
+# Suma el total de compra actual
 DELIMITER $$
 CREATE PROCEDURE total_compra_diaria ()
 BEGIN
@@ -390,9 +356,3 @@ BEGIN
 END$$
 DELIMITER ;
 
-DELIMITER $$
-CREATE PROCEDURE contar_clientes ()
-BEGIN
-	SELECT count(idclien) FROM clientes;
-END$$
-DELIMITER ;

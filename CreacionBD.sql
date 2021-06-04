@@ -22,7 +22,7 @@ CREATE TABLE CLIENTES (
 	apellidoPat VARCHAR(20) not null,
 	apellidoMat VARCHAR(20) not null,
 	apodo VARCHAR(20) not null,
-    duracion FLOAT(3,2) not null,
+    duracion INT not null,
     FOREIGN KEY (idMem) REFERENCES MEMBRESIA (idMem) ON DELETE CASCADE
 );
 
