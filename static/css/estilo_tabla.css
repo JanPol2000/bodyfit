@@ -4,12 +4,13 @@
 
 table{
     opacity: 75%;
-    position: absolute;
-    top: -10%;
+    position: relative;
+    top: 0%;
     left: 0;
     right: 0; 
     bottom: 0;
     margin: auto;
+    margin-top: 10%;
     padding: 2px;
     background: none;
     border: 2px;

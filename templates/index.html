@@ -9,56 +9,18 @@
 	<style>
 		@import "../static/css/estilo_inicio.css";
 		@import "../static/css/estilo_base.css";
-		@import "../static/css/estilo_menu.css";
 	</style>
 	<link rel="icon" href="../static/img/icon_bf.ico">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script>
+		$(function(){
+			$("#header").load("menu.html");
+		});
+	</script>
 </head>
 <body>
-	<header>
-		<div class="bar"></div>
-		<div class="container">
-			<div class="logo"><a href="#"><img src="../static/img/logo_bf_1.png"></a></div>
-			<div class="menu">
-				<ul>
-					<li class="item"><a class="none" href="#">#</a></li>
-					<li class="item"><a href="index.html">Inicio</a></li>
-					<li class="item"><a href="#">Clientes</a>
-						<ul class="desplegable">
-							<li><a href="clientes_crear.html">Agregar</a></li>
-							<li><a href="clientes_buscar.html">Editar</a></li>
-							<li><a href="clientes_buscar.html">Eliminar</a></li>
-							<li><a href="clientes_listar.html">Lista</a></li>
-						</ul>
-					</li>
-					<li class="item"><a href="membresias.html">Membresias</a></li>
-					<li class="item"><a href="inventario.html">Inventario</a></li>
-					<li class="item"><a href="#">Productos</a>
-						<ul class="desplegable">
-							<li><a href="producto_crear.html">Agregar</a></li>
-							<li><a href="producto_buscar.html">Editar</a></li>
-							<li><a href="producto_buscar.html">Eliminar</a></li>
-						</ul>
-					</li>
-					<li class="item"><a href="#">Proveedor</a>
-						<ul class="desplegable">
-							<li><a href="proveedor_crear.html">Agregar</a></li>
-							<li><a href="proveedor_buscar.html">Editar</a></li>
-							<li><a href="proveedor_buscar.html">Eliminar</a></li>
-							<li><a href="proveedor_listar.html">Lista</a></li>
-						</ul>
-					</li>
-					<li class="item"><a href="#">Ventas</a>
-						<ul class="desplegable">
-							<li><a href="ventas_crear.html">Nueva</a></li>
-							<li><a href="ventas_corte.html">Corte</a></li>
-						</ul>
-					</li>
-					<li class="item"><a class="none" href="#">#</a></li>
-					<li class="item"><a class="user" href="iniciar_sesion.html">Iniciar Sesion</a></li>
-				</ul>
-			</div>
-		</div>
-	</header>
+	<div id="header"></div>
+	
 	<div class="img_izq"><img src="../static/img/wallpaper_0.png"></a></div>
 	<div class="titulo">
 		<h1>Sistema de Gestion</h1>
